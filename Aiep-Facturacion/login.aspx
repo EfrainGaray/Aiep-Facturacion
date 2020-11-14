@@ -6,8 +6,8 @@
     <div class="col-8 text-white font-weight-bold">
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-
+          
+            <asp:TextBox ID="usuario" CssClass="form-control" runat="server"></asp:TextBox>
             <div class="alert alert-danger form-text font-weight-light" role="alert">
                 A simple danger alert—check it out!
             </div>
@@ -15,10 +15,11 @@
 
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <asp:TextBox ID="password" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="mt-5">
-            <button type="submit" class="btn btn-primary mt-5 mb-5 w-100 bg-color-primary-button">Submit</button>
+            
+            <asp:Button ID="ingreso" CssClass="btn btn-primary mt-5 mb-5 w-100 bg-color-primary-button" runat="server" Text="INGRESAR" />
             <hr class="mb-5" />
         </div>
 
