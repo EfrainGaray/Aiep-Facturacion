@@ -1,0 +1,19 @@
+﻿.login-bg {
+    background: url(../Imagen/bg-login.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.form-bg {
+    background: rgba(126, 132, 146,.6);
+}
+.form-bg figure {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.bg-color-primary-button {
+    background: #EF295E;
+    border:1px solid #EF295E;
+}
