@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Aiep_Facturacion
 {
-    public partial class Main : System.Web.UI.MasterPage
+    public partial class Login : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
