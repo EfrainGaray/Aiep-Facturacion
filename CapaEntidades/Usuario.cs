@@ -4,8 +4,8 @@ namespace CapaEntidades
 {
     public class Usuario
     {
-        private String usuari;
-        private String password;
+        private string usuari;
+        private string password;
         private int cantidadFacturas;
 
         public string Usuari { get => usuari; set => usuari = value; }

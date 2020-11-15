@@ -9,7 +9,7 @@ import getClientRect from '../utils/getClientRect';
  * @memberof Popper.Utils
  * @param {dataObject} data
  * @param {Array} modifiers
- * @param {String} ends - Optional modifier name used as stopper
+ * @param {string} ends - Optional modifier name used as stopper
  * @returns {dataObject}
  */
 export default function runModifiers(modifiers, data, ends) {

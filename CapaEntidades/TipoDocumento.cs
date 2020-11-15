@@ -6,7 +6,7 @@ namespace CapaEntidades
 {
     class TipoDocumento
     {
-        private String nombre;
+        private string nombre;
 
         public string Nombre { get => nombre; set => nombre = value; }
     }

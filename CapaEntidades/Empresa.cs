@@ -6,12 +6,13 @@ namespace CapaEntidades
 {
     class Empresa
     {
-        private String rut;
-        private String razonSocial;
-        private String giro;
-        private String email;
-        private String direccion;
-        private String telefono;
+        private string rut;
+        private string razonSocial;
+        private string giro;
+        private string email;
+        private string direccion;
+        private string telefono;
+        
 
         public string Rut { get => rut; set => rut = value; }
         public string RazonSocial { get => razonSocial; set => razonSocial = value; }
