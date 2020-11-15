@@ -12,7 +12,20 @@ namespace CapaEntidades
         private string email;
         private string direccion;
         private string telefono;
-        
+
+        public Empresa() {
+
+        }
+
+        public Empresa(string rut, string razonSocial, string giro, string email, string direccion, string telefono)
+        {
+            this.rut = rut;
+            this.razonSocial = razonSocial;
+            this.giro = giro;
+            this.email = email;
+            this.direccion = direccion;
+            this.telefono = telefono;
+        }
 
         public string Rut { get => rut; set => rut = value; }
         public string RazonSocial { get => razonSocial; set => razonSocial = value; }

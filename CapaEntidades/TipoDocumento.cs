@@ -8,6 +8,14 @@ namespace CapaEntidades
     {
         private string nombre;
 
+        public TipoDocumento() {
+
+        }
+        public TipoDocumento(string nombre)
+        {
+            this.nombre = nombre;
+        }
+
         public string Nombre { get => nombre; set => nombre = value; }
     }
 }
