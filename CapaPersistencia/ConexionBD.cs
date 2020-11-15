@@ -28,6 +28,7 @@ namespace CapaPersistencia
                 if (conexion.State == System.Data.ConnectionState.Closed)
                 {
                     conexion.Open();
+                   
                 }
             }
             catch (Exception)
