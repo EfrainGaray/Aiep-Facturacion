@@ -306,10 +306,6 @@
       <Project>{29ce64d4-2673-483a-90f1-08adca32a223}</Project>
       <Name>capaNegocio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\capaPersintencia\capaPersintencia.csproj">
-      <Project>{f7a5d6b3-2623-4c14-b0e9-4594c11b467c}</Project>
-      <Name>capaPersintencia</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
