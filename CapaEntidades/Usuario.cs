@@ -4,20 +4,20 @@ namespace CapaEntidades
 {
     public class Usuario
     {
-        private string usuari;
+        private string user;
         private string password;
         private int cantidadFacturas;
 
         public Usuario() {
         }
-        public Usuario(string usuari, string password, int cantidadFacturas)
+        public Usuario(string user, string password, int cantidadFacturas)
         {
-            this.usuari = usuari;
+            this.user = user;
             this.password = password;
             this.cantidadFacturas = cantidadFacturas;
         }
 
-        public string Usuari { get => usuari; set => usuari = value; }
+        public string User { get => user; set => user = value; }
         public string Password { get => password; set => password = value; }
         public int CantidadFacturas { get => cantidadFacturas; set => cantidadFacturas = value; }
     }

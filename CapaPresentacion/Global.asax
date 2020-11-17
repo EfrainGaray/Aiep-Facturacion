@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="CapaPresentacion.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="capaPresentacion.Global" Language="C#" %>
