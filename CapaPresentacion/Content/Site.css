@@ -73,3 +73,16 @@
     .indicador p:nth-child(3) {
         height: 50px;
     }
+    .indicador .fs-24{
+        font-size: 24px;
+    }
+.bg-index {
+    background: url(../Imagen/nuevas-tecnologias_azul.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.border-radius-10{
+    border-radius:10px;
+}

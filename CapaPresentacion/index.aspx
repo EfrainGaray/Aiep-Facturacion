@@ -3,7 +3,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <figure class="pt-3">
 
+        <img  class="img-fluid  border-radius-10" src="Imagen/nuevas-tecnologias_azul.png" style="min-width: 100%"/>
+    </figure>
 
 
 

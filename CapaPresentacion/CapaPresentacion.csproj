@@ -126,6 +126,7 @@
     <Content Include="Imagen\Grupo 1565%402x.png" />
     <Content Include="Imagen\Grupo 1565.png" />
     <Content Include="Imagen\logo-login.png" />
+    <Content Include="Imagen\nuevas-tecnologias_azul.png" />
     <Content Include="index.aspx" />
     <Content Include="Login.Master" />
     <Content Include="Scripts\bootstrap.bundle.js" />
