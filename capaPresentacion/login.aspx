@@ -7,7 +7,7 @@
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
           
-            <asp:TextBox ID="usuario" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtUsuario" CssClass="form-control" runat="server"></asp:TextBox>
             <div class="alert alert-danger form-text font-weight-light" role="alert">
                 A simple danger alert—check it out!
             </div>
@@ -15,7 +15,7 @@
 
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <asp:TextBox ID="password" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtPasword" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="mt-5">
             

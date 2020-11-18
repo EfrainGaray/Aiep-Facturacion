@@ -52,7 +52,7 @@ TestResults/
 # Logs and databases #
 ######################
 *.log
-*/.vs
+*/.vs/*
 *.sqlite
 # OS generated files #
 ######################
@@ -75,3 +75,4 @@ _[Ss]cripts
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]over
+.vs/Aiep-Facturacion/config/applicationhost.config
