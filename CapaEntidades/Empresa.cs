@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CapaEntidades
 {
-    class Empresa
+    public class Empresa
     {
         private string rut;
         private string razonSocial;

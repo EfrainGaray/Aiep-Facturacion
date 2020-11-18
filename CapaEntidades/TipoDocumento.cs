@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CapaEntidades
 {
-    class TipoDocumento
+    public class TipoDocumento
     {
         private string nombre;
 
