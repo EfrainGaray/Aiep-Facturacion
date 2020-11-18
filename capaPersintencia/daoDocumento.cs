@@ -53,11 +53,11 @@ namespace capaPersintencia
                 commandSql.Parameters["@creadoPor"].Value = nuevoDocumento.CreadoPor;
 
                 //ID de relacionados al documento
-                //commandSql.Parameters.AddWithValue("@cliente_id", SqlDbType.Int);
-                //commandSql.Parameters["@cliente_id"].Value = nuevoDocumento.;
+                commandSql.Parameters.AddWithValue("@cliente_id", SqlDbType.Int);
+                commandSql.Parameters["@cliente_id"].Value = nuevoDocumento;
 
-                //commandSql.Parameters.AddWithValue("@tipoDocumento_id", SqlDbType.Int);
-                //commandSql.Parameters["@tipoDocumento_id"].Value = nuevoDocumento.;
+                commandSql.Parameters.AddWithValue("@tipoDocumento_id", SqlDbType.Int);
+                commandSql.Parameters["@tipoDocumento_id"].Value = nuevoDocumento.;
 
                 //Ejecución de query
                 int filasAfectadas = commandSql.ExecuteNonQuery();
