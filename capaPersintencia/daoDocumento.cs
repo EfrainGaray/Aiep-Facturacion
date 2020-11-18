@@ -54,7 +54,7 @@ namespace capaPersintencia
 
                 //ID de relacionados al documento
                 commandSql.Parameters.AddWithValue("@cliente_id", SqlDbType.Int);
-                commandSql.Parameters["@cliente_id"].Value = nuevoDocumento;
+                commandSql.Parameters["@cliente_id"].Value = nuevoDocumento.Comprador.;
 
               
                 //Ejecución de query

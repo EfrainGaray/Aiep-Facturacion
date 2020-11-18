@@ -61,6 +61,39 @@ namespace capaPersintencia
             }
             
         }
+
+        public List<Producto> detalleProduto(string codigo) {
+            ConexionBD conexion = new ConexionBD();
+            conexion.abrirConexion();
+            string sql = "SELECT * FROM producto where codigo=@codigo";
+            SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+
+            sqlData.SelectCommand.Parameters.AddWithValue("@codigo", SqlDbType.VarChar);
+            sqlData.SelectCommand.Parameters["@codigo"].Value = codigo;
+
+
+            DataTable dataTable = new DataTable();
+
+
+            sqlData.Fill(dataTable);
+            conexion.cerrarConexion();
+            List<Producto> productos = new List<Producto>();
+            if (dataTable.Rows.Count > 0)
+            {
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    Producto productoAux = new Producto();
+                    productoAux.Codigo = dataTable.Rows[i]["codigo"].ToString();
+                    productoAux.Descripcion = dataTable.Rows[i]["descipcion"].ToString();
+                    productoAux.Nombre = dataTable.Rows[i]["nombre"].ToString();
+                    productoAux.Precio = int.Parse(dataTable.Rows[i]["precio"].ToString());
+                    productoAux.Stock = int.Parse(dataTable.Rows[i]["stock"].ToString());
+                    productoAux.IdProducto = int.Parse(dataTable.Rows[i]["id"].ToString());
+                    productos.Add(productoAux);
+                }
+            }
+            return productos;
+        }
         public bool modificararProducto()
         {
             return false;
