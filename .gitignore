@@ -47,10 +47,12 @@ TestResults/
 *.rar
 *.tar
 *.zip
+
 ######################
 # Logs and databases #
 ######################
 *.log
+*/.vs
 *.sqlite
 # OS generated files #
 ######################

@@ -1,31 +1,91 @@
-﻿/* Move down content because we have a fixed navbar that is 50px tall */
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿html, body {
+    height: 100%;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+#yellow {
+    height: 100%;
+    background: yellow;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
+.login-bg {
+    background: url(../Imagen/bg-login.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
+.form-bg {
+    background: rgba(126, 132, 146,.6);
+}
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .jumbotron {
-        margin-top: 20px;
+    .form-bg figure.login {
+        width: 300px;
+        margin: 0 auto;
     }
 
-    .body-content {
-        padding: 0;
+
+.bg-color-primary-button {
+    background: #EF295E;
+    border: 1px solid #EF295E;
+}
+
+.color-fondo {
+    background: #455060;
+}
+
+.boton {
+    background: none;
+}
+
+    .boton::after {
+        position: absolute;
+        right: 16px;
+        top: 40%;
     }
+
+.cerrar {
+    padding: 9%;
+    width: 100%;
+    position: absolute;
+    bottom: 15px;
+}
+
+.cerrarColor {
+    background: #FF007C;
+}
+
+.indicador {
+    padding: 0 9%;
+    /* border: 1px solid blue; */
+    border-radius: 15px;
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+}
+
+    .indicador hr {
+        border-top: 1px solid;
+        width: 120% !important;
+        margin-left: -10%;
+    }
+
+    .indicador p:nth-child(3) {
+        height: 50px;
+    }
+    .indicador .fs-24{
+        font-size: 24px;
+    }
+.bg-index {
+    background: url(../Imagen/nuevas-tecnologias_azul.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.border-radius-10{
+    border-radius:10px;
+}
+.fs-24{
+    font-size:24px;
 }

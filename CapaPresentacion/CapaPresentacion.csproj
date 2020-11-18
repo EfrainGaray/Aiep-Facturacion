@@ -117,9 +117,18 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Imagen\bg-login.jpg" />
+    <Content Include="Imagen\Componente 55 – 1%402x.png" />
+    <Content Include="Imagen\Componente.png" />
     <Content Include="Imagen\cropped-shutterstock_81998776%402x.jpg" />
+    <Content Include="Imagen\Cuadrícula de repetición 21%402x.png" />
+    <Content Include="Imagen\Cuadrícula de repetición 21.png" />
     <Content Include="Imagen\Grupo 1563%402x.png" />
+    <Content Include="Imagen\Grupo 1565%402x.png" />
+    <Content Include="Imagen\Grupo 1565.png" />
     <Content Include="Imagen\logo-login.png" />
+    <Content Include="Imagen\nuevas-tecnologias_azul.png" />
+    <Content Include="index.aspx" />
+    <Content Include="listaFactura.aspx" />
     <Content Include="Login.Master" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -144,6 +153,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="BackOffice.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="login.aspx" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -258,8 +268,29 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BackOffice.Master.cs">
+      <DependentUpon>BackOffice.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BackOffice.Master.designer.cs">
+      <DependentUpon>BackOffice.Master</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listaFactura.aspx.cs">
+      <DependentUpon>listaFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listaFactura.aspx.designer.cs">
+      <DependentUpon>listaFactura.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
