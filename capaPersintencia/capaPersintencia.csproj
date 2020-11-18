@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="daoCliente.cs" />
+    <Compile Include="daoEmpresa.cs" />
+    <Compile Include="daoDocumento.cs" />
+    <Compile Include="daoProducto.cs" />
     <Compile Include="daoUsuario.cs" />
     <Compile Include="ConexionDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

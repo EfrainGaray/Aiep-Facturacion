@@ -12,7 +12,7 @@ namespace CapaEntidades
         private int iva;
         private int tipoPago;
         private Cliente comprador;
-        private Empresa vendedor;
+        private Empresa vendedor ;
         private TipoDocumento tipoDoc;
         private List<DetalleDocumento> detalleDocumentos;
         private DateTime fechaEmision;
@@ -21,9 +21,7 @@ namespace CapaEntidades
 
         public Documento()
         {
-           
         }
-
 
         public string Folio { get => folio; set => folio = value; }
         public int EstadoEmitido { get => estadoEmitido; set => estadoEmitido = value; }
