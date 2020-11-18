@@ -12,13 +12,19 @@ namespace capaPersintencia
     {
     
         Usuario user = new Usuario();
-        public List<Usuario>  GetUsuarios() {
+        public List<Usuario>  GetUsuarios(string user) {
             ConexionBD conexion = new ConexionBD();
             conexion.abrirConexion();
-            string sql = "SELECT * FROM usuario";
+            string sql = "SELECT * FROM usuario where usuario=@usuario";
+            SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+
+            sqlData.SelectCommand.Parameters.AddWithValue("@usuario", SqlDbType.VarChar);
+            sqlData.SelectCommand.Parameters["@usuario"].Value = user;
+
+
             DataTable dataTable = new DataTable();
 
-            SqlDataAdapter sqlData = new SqlDataAdapter(sql,conexion.Conexion);
+           
             sqlData.Fill(dataTable);
             conexion.cerrarConexion();
             List<Usuario> usuarios = new List<Usuario>();

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CapaEntidades
 {
-    class Empresa
+    public class Empresa
     {
         private string rut;
         private string razonSocial;
@@ -12,6 +12,7 @@ namespace CapaEntidades
         private string email;
         private string direccion;
         private string telefono;
+        private int idEmpresa;
 
         public Empresa() {
 
@@ -33,5 +34,6 @@ namespace CapaEntidades
         public string Email { get => email; set => email = value; }
         public string Direccion { get => direccion; set => direccion = value; }
         public string Telefono { get => telefono; set => telefono = value; }
+        public int IdEmpresa { get => IdEmpresa; set => IdEmpresa = value; }
     }
 }

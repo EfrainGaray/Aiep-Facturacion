@@ -16,19 +16,18 @@ namespace capaPersintencia
         public ConexionBD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["ProyectoFacturacionBD"].ConnectionString;
-
-            conexion = new SqlConnection(cadenaConexion);
+            Conexion = new SqlConnection(cadenaConexion);
         }
 
-        public SqlConnection Conexion { get => conexion; }
+        public SqlConnection Conexion { get => conexion; set => conexion = value; }
 
         public void abrirConexion()
         {
             try
             {
-                if (conexion.State == System.Data.ConnectionState.Closed)
+                if (Conexion.State == System.Data.ConnectionState.Closed)
                 {
-                    conexion.Open();
+                    Conexion.Open();
 
                 }
             }
@@ -43,9 +42,9 @@ namespace capaPersintencia
         {
             try
             {
-                if (conexion.State == System.Data.ConnectionState.Open)
+                if (Conexion.State == System.Data.ConnectionState.Open)
                 {
-                    conexion.Close();
+                    Conexion.Close();
                 }
             }
             catch (Exception)

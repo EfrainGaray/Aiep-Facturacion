@@ -24,6 +24,22 @@ namespace CapaEntidades
            
         }
 
+        public Documento(string folio, int estadoEmitido, int subTotal, int total, int iva, int tipoPago, Cliente comprador, Empresa vendedor, TipoDocumento tipoDoc, List<DetalleDocumento> detalleDocumentos, DateTime fechaEmision, string observacion, string creadoPor)
+        {
+            this.folio = folio;
+            this.estadoEmitido = estadoEmitido;
+            this.subTotal = subTotal;
+            this.total = total;
+            this.iva = iva;
+            this.tipoPago = tipoPago;
+            this.comprador = comprador;
+            this.vendedor = vendedor;
+            this.tipoDoc = tipoDoc;
+            this.detalleDocumentos = detalleDocumentos;
+            this.fechaEmision = fechaEmision;
+            this.observacion = observacion;
+            this.creadoPor = creadoPor;
+        }
 
         public string Folio { get => folio; set => folio = value; }
         public int EstadoEmitido { get => estadoEmitido; set => estadoEmitido = value; }
@@ -34,9 +50,9 @@ namespace CapaEntidades
         public DateTime FechaEmision { get => fechaEmision; set => fechaEmision = value; }
         public string Observacion { get => observacion; set => observacion = value; }
         public string CreadoPor { get => creadoPor; set => creadoPor = value; }
-        internal Cliente Comprador { get => comprador; set => comprador = value; }
-        internal Empresa Vendedor { get => vendedor; set => vendedor = value; }
-        internal TipoDocumento TipoDoc { get => tipoDoc; set => tipoDoc = value; }
-        internal List<DetalleDocumento> DetalleDocumentos { get => detalleDocumentos; set => detalleDocumentos = value; }
+        public Cliente Comprador { get => comprador; set => comprador = value; }
+        public Empresa Vendedor { get => vendedor; set => vendedor = value; }
+        public TipoDocumento TipoDoc { get => tipoDoc; set => tipoDoc = value; }
+        public List<DetalleDocumento> DetalleDocumentos { get => detalleDocumentos; set => detalleDocumentos = value; }
     }
 }

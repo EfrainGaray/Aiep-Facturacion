@@ -4,9 +4,10 @@ using System.Text;
 
 namespace CapaEntidades
 {
-    class TipoDocumento
+    public class TipoDocumento
     {
         private string nombre;
+        private int idTDocumento;
 
         public TipoDocumento() {
 
@@ -17,5 +18,6 @@ namespace CapaEntidades
         }
 
         public string Nombre { get => nombre; set => nombre = value; }
+        public int IdDetalle { get => idTDocumento; set => idTDocumento = value; }
     }
 }
