@@ -33,12 +33,21 @@ namespace Aiep_Facturacion
         protected global::System.Web.UI.WebControls.TextBox txtPasword;
 
         /// <summary>
-        /// Control ingreso.
+        /// Control sendData.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ingreso;
+        protected global::System.Web.UI.WebControls.Button sendData;
+
+        /// <summary>
+        /// Control error.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl error;
     }
 }

@@ -64,3 +64,8 @@
     .indicador p:nth-child(3) {
         height:50px;
     }
+.opacity-0 {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}

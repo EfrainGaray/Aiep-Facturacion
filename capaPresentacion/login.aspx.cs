@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using capaNegocio;
 namespace Aiep_Facturacion
 {
     public partial class login : System.Web.UI.Page
@@ -14,9 +14,28 @@ namespace Aiep_Facturacion
             txtPasword.Attributes.Add("placeholder", "************");
             txtPasword.Attributes.Add("required", "required");
             txtPasword.Attributes.Add("type", "password");
+            txtPasword.Attributes.Add("max", "10");
             txtUsuario.Attributes.Add("placeholder", "user");
             txtUsuario.Attributes.Add("required", "required");
             txtUsuario.Attributes.Add("type", "text");
+            txtUsuario.Attributes.Add("max", "10");
+        }
+
+        protected void sendData_Click(object sender, EventArgs e)
+        {
+            string usuario = txtUsuario.Text;
+            string password = txtPasword.Text;
+           
+            if (Utils.CheckString(usuario) || Utils.CheckString(password))
+            {
+                error.InnerHtml = "Datos ingresados no son validos";
+                error.Style.Add("opacity", "1");
+                error.Style.Add("visibility", "visible");
+            }
+            else
+            {
+                error.Attributes.Remove("style");
+            }
         }
     }
 }
