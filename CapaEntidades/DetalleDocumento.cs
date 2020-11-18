@@ -4,10 +4,10 @@ using System.Text;
 
 namespace CapaEntidades
 {
-    class DetalleDocumento
+    public class DetalleDocumento
     {
         private int cantidadProducto;
-        private int precioProducto;
+        private int precioProducto; 
         private int estado;
 
         public DetalleDocumento() {
