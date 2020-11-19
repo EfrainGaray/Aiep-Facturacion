@@ -115,7 +115,7 @@ namespace capaPersintencia
 
                 sqlData.SelectCommand.Parameters.AddWithValue("@nombre", SqlDbType.VarChar);
                 sqlData.SelectCommand.Parameters["@nombre"].Value = nombre;
-
+  
 
                 DataTable dataTable = new DataTable();
 
