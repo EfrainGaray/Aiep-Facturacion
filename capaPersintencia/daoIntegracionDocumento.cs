@@ -14,30 +14,39 @@ namespace capaPersintencia
         //Obtener datos de la base para los tipos de documentos
         public List<TipoDocumento> detalleTDocumento()
         {
-            ConexionBD conexion = new ConexionBD();
-            conexion.abrirConexion();
-            string sql = "SELECT * FROM tipoDocumento";
-            SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
-
-            DataTable dataTable = new DataTable();
-
-
-            sqlData.Fill(dataTable);
-            conexion.cerrarConexion();
-            List<TipoDocumento> tipoDocumentos = new List<TipoDocumento>();
-            if (dataTable.Rows.Count > 0)
+            try
             {
-                for (int i = 0; i < dataTable.Rows.Count; i++)
+                ConexionBD conexion = new ConexionBD();
+                conexion.abrirConexion();
+                string sql = "SELECT * FROM tipoDocumento";
+                SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+
+                DataTable dataTable = new DataTable();
+
+
+                sqlData.Fill(dataTable);
+                conexion.cerrarConexion();
+                List<TipoDocumento> tipoDocumentos = new List<TipoDocumento>();
+                if (dataTable.Rows.Count > 0)
                 {
-                    TipoDocumento tDocumentoAux = new TipoDocumento();
-                    tDocumentoAux.Nombre = dataTable.Rows[i]["nombre"].ToString();
-                    tDocumentoAux.IdDetalle = int.Parse(dataTable.Rows[i]["id"].ToString());
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+                        TipoDocumento tDocumentoAux = new TipoDocumento();
+                        tDocumentoAux.Nombre = dataTable.Rows[i]["nombre"].ToString();
+                        tDocumentoAux.IdDetalle = int.Parse(dataTable.Rows[i]["id"].ToString());
 
 
-                    tipoDocumentos.Add(tDocumentoAux);
+                        tipoDocumentos.Add(tDocumentoAux);
+                    }
                 }
+                return tipoDocumentos;
             }
-            return tipoDocumentos;
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         //Ingresar y obtener detalle del documento
@@ -95,35 +104,44 @@ namespace capaPersintencia
         }
 
         public List<DetalleDocumento> consultaDDocumento(int idDocumento) {
-            ConexionBD conexion = new ConexionBD();
-            conexion.abrirConexion();
-            string sql = "SELECT * FROM detalleDocumento where documento_id=@documento_id";
-            SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
-
-            sqlData.SelectCommand.Parameters.AddWithValue("@documento_id", SqlDbType.Int);
-            sqlData.SelectCommand.Parameters["@documento_id"].Value = idDocumento;
-
-
-            DataTable dataTable = new DataTable();
-
-
-            sqlData.Fill(dataTable);
-            conexion.cerrarConexion();
-            List<DetalleDocumento> detalleD = new List<DetalleDocumento>();
-            if (dataTable.Rows.Count > 0)
+            try
             {
-                for (int i = 0; i < dataTable.Rows.Count; i++)
+                ConexionBD conexion = new ConexionBD();
+                conexion.abrirConexion();
+                string sql = "SELECT * FROM detalleDocumento where documento_id=@documento_id";
+                SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+
+                sqlData.SelectCommand.Parameters.AddWithValue("@documento_id", SqlDbType.Int);
+                sqlData.SelectCommand.Parameters["@documento_id"].Value = idDocumento;
+
+
+                DataTable dataTable = new DataTable();
+
+
+                sqlData.Fill(dataTable);
+                conexion.cerrarConexion();
+                List<DetalleDocumento> detalleD = new List<DetalleDocumento>();
+                if (dataTable.Rows.Count > 0)
                 {
-                    DetalleDocumento detalleAux = new DetalleDocumento();
-                    detalleAux.CantidadProducto = int.Parse(dataTable.Rows[i]["cantidadProducto"].ToString()) ;
-                    detalleAux.PrecioProducto = int.Parse(dataTable.Rows[i]["precioProducto"].ToString()) ;
-                    detalleAux.IdProducto = int.Parse(dataTable.Rows[i]["producto_id"].ToString());
-                    detalleAux.IdDocumento = int.Parse(dataTable.Rows[i]["documento_id"].ToString());
-                    detalleAux.Estado = int.Parse(dataTable.Rows[i]["estado"].ToString());
-                    detalleD.Add(detalleAux);
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+                        DetalleDocumento detalleAux = new DetalleDocumento();
+                        detalleAux.CantidadProducto = int.Parse(dataTable.Rows[i]["cantidadProducto"].ToString());
+                        detalleAux.PrecioProducto = int.Parse(dataTable.Rows[i]["precioProducto"].ToString());
+                        detalleAux.IdProducto = int.Parse(dataTable.Rows[i]["producto_id"].ToString());
+                        detalleAux.IdDocumento = int.Parse(dataTable.Rows[i]["documento_id"].ToString());
+                        detalleAux.Estado = int.Parse(dataTable.Rows[i]["estado"].ToString());
+                        detalleD.Add(detalleAux);
+                    }
                 }
+                return detalleD;
             }
-            return detalleD;
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
     }
 }
