@@ -10,6 +10,9 @@ namespace CapaEntidades
         private int precioProducto; 
         private int estado;
         private int idDDocumento;
+        private int idProducto;
+        private int idDocumento;
+
 
         public DetalleDocumento() {
 
@@ -26,5 +29,7 @@ namespace CapaEntidades
         public int PrecioProducto { get => precioProducto; set => precioProducto = value; }
         public int Estado { get => estado; set => estado = value; }
         public int IdDDocumento { get => idDDocumento; set => idDDocumento = value; }
+        public int IdProducto { get => idProducto; set => idProducto = value; }
+        public int IdDocumento { get => idDocumento; set => idDocumento = value; }
     }
 }
