@@ -29,7 +29,10 @@ namespace CapaEntidades
         public int Stock { get => stock; set => stock = value; }
         public int Precio { get => precio; set => precio = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
         public int IdProducto { get => idProducto; set => idProducto = value; }
     }
 }

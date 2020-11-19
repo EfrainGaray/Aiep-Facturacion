@@ -11,6 +11,7 @@ namespace CapaEntidades
         private string direccion;
         private string telefono;
         private string email;
+        private int idCliente;
 
         public Cliente() {
         }
@@ -29,5 +30,6 @@ namespace CapaEntidades
         public string Direccion { get => direccion; set => direccion = value; }
         public string Telefono { get => telefono; set => telefono = value; }
         public string Email { get => email; set => email = value; }
+        public int IdCliente { get => idCliente; set => idCliente = value; }
     }
 }
