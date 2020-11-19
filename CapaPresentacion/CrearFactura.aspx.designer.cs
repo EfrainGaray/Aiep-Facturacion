@@ -13,5 +13,14 @@ namespace capaPresentacion
 
     public partial class CrearFactura
     {
+
+        /// <summary>
+        /// Control enviarFactura1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button enviarFactura1;
     }
 }

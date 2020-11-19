@@ -80,7 +80,7 @@
 
             </div>
              <div class="container form-footer text-right mt-3">
-                    <button class="btn btn-info display-1">SIGUIENTE</button>
+                 <asp:Button ID="enviarFactura1" runat="server" CssClass="btn btn-info display-1" OnClick="Button1_Click" Text="Button" />
                 </div>
         </div>
         </div>

@@ -10,18 +10,23 @@ namespace Aiep_Facturacion
 {
     public partial class BackOffice : System.Web.UI.MasterPage
     {
-        Usuario user;
+        string user;
         protected void Page_Init(object sender, EventArgs e)
         {
-            this.user= (Usuario)(Session["usuario"]);
+            this.user= (string)(Session["usuario"]);
             if (user==null)
             {
                 Response.Redirect("login",true);
             }
+         
+           
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            factura1.InnerHtml = (string)Session["facturasUsuario"];
+            factura2.InnerHtml = (string)Session["facturasTotalUsuario"];
+            factura3.InnerHtml = (string)Session["totalNetoUsuario"];
+            factura4.InnerHtml = (string)Session["totalNetoTotalUsurio"];
         }
     }
 }

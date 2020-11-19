@@ -42,7 +42,7 @@ namespace Aiep_Facturacion
                 if (validarUsuario.validaLogin())
                 {
                     Usuario user = validarUsuario.User;
-                    Session["usuario"] =  user;
+                    Session["usuario"] =  user.User;
                     Response.Redirect("index",true);
                 }
                 else {

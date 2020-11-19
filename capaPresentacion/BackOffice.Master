@@ -95,7 +95,6 @@
                                 <div class="row" >
                                     <p class="col-6">
                                         <span class="fs-24" runat="server" id="factura1">123 </span>
-
                                     </p>
                                     
                                     <figure class="col-6">
