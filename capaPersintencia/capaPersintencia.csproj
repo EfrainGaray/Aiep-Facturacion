@@ -45,6 +45,7 @@
     <Compile Include="daoCliente.cs" />
     <Compile Include="daoEmpresa.cs" />
     <Compile Include="daoDocumento.cs" />
+    <Compile Include="daoIntegracionDocumento.cs" />
     <Compile Include="daoProducto.cs" />
     <Compile Include="daoUsuario.cs" />
     <Compile Include="ConexionDB.cs" />

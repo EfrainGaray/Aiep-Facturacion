@@ -11,7 +11,7 @@ namespace capaPersintencia
 {
     public class daoDocumento
     {
-        public bool registrarFactura(Documento nuevoDocumento) {
+        public bool registrarFactura(Documento nuevoDocumento, Cliente comprador) {
 
             try
             {
@@ -54,7 +54,7 @@ namespace capaPersintencia
 
                 //ID de relacionados al documento
                 commandSql.Parameters.AddWithValue("@cliente_id", SqlDbType.Int);
-                commandSql.Parameters["@cliente_id"].Value = nuevoDocumento.Comprador.;
+                commandSql.Parameters["@cliente_id"].Value = comprador.IdCliente;
 
               
                 //Ejecución de query
