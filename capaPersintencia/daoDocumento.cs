@@ -90,8 +90,36 @@ namespace capaPersintencia
             return false;
         }
         public List<Documento> consultarFactura()
-        {
-            return null;
+        {/*
+            ConexionBD conexion = new ConexionBD();
+            conexion.abrirConexion();
+            string sql = "SELECT * FROM documento";
+            SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+
+
+
+
+            DataTable dataTable = new DataTable();
+
+
+            sqlData.Fill(dataTable);
+            conexion.cerrarConexion();
+            List<Documento> documentos = new List<Documento>();
+            if (dataTable.Rows.Count > 0)
+            {
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    Documento documentoAux = new Documento();
+                    documentoAux. = int.Parse(dataTable.Rows[i]["cantidadProducto"].ToString());
+                    documentoAux.PrecioProducto = int.Parse(dataTable.Rows[i]["precioProducto"].ToString());
+                    documentoAux.IdProducto = int.Parse(dataTable.Rows[i]["producto_id"].ToString());
+                    documentoAux.IdDocumento = int.Parse(dataTable.Rows[i]["documento_id"].ToString());
+                    documentoAux.Estado = int.Parse(dataTable.Rows[i]["estado"].ToString());
+                    documentos.Add(documentoAux);
+                }
+            }
+            return documentos;*/
+                return null;
         }
     }
 }
