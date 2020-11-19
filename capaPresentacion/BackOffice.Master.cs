@@ -21,7 +21,7 @@ namespace Aiep_Facturacion
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('"+ user.User + "');</script>");
+           
         }
     }
 }
