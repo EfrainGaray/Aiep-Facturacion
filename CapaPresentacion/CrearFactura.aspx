@@ -21,58 +21,58 @@
             <div class="container bg-gray p-3">
 
                 <div class="form-row">
+                    <label for="txtNombre" class="col-2 col-form-label">Señor(ra)</label>
+                    <div class="col-4">
+                        <asp:TextBox ID="txtNombre" CssClass="form-contro" runat="server"></asp:TextBox>
+                    </div>
+                     <label for="txtTelefono" class="col-2 col-form-label">Telefono</label>
+                    <div class="col-4">
+                        <asp:TextBox ID="txtTelefono" CssClass="form-contro" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+
+                  <div class="form-row mt-3">
+                    <label for="txtRut" class="col-2 col-form-label">Rut</label>
+                    <div class="col-4">
+                       <asp:TextBox ID="txtRut" CssClass="form-contro" runat="server"></asp:TextBox>
+                    </div>
+                     <label for="txtEmail" class="col-2 col-form-label">Email</label>
+                    <div class="col-4">
+                        <asp:TextBox ID="txtEmail" CssClass="form-contro" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+
+                  <div class="form-row mt-3">
+                    <label for="txtComuna" class="col-2 col-form-label">Email</label>
+                    <div class="col-4">
+                       <asp:TextBox ID="txtComuna" CssClass="form-contro" runat="server"></asp:TextBox>
+                    </div>
+                     <label for="txtCondDePago" class="col-2 col-form-label">Cond. de Pago</label>
+                    <div class="col-4">
+                       <asp:TextBox ID="txtCondDePago" CssClass="form-contro" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+
+
+                  <div class="form-row mt-3">
                     <label for="staticEmail" class="col-2 col-form-label">Email</label>
                     <div class="col-4">
-                        <input type="text" class="form-control" placeholder="First name">
+                      <asp:TextBox ID="TextBox7" CssClass="form-contro" runat="server"></asp:TextBox>
                     </div>
                      <label for="staticEmail" class="col-2 col-form-label">Email</label>
                     <div class="col-4">
-                        <input type="text" class="form-control" placeholder="Last name">
+                        <asp:TextBox ID="TextBox8" CssClass="form-contro" runat="server"></asp:TextBox>
                     </div>
                 </div>
 
                   <div class="form-row mt-3">
                     <label for="staticEmail" class="col-2 col-form-label">Email</label>
                     <div class="col-4">
-                        <input type="text" class="form-control" placeholder="First name">
+                        <asp:TextBox ID="TextBox9" CssClass="form-contro" runat="server"></asp:TextBox>
                     </div>
                      <label for="staticEmail" class="col-2 col-form-label">Email</label>
                     <div class="col-4">
-                        <input type="text" class="form-control" placeholder="Last name">
-                    </div>
-                </div>
-
-                  <div class="form-row mt-3">
-                    <label for="staticEmail" class="col-2 col-form-label">Email</label>
-                    <div class="col-4">
-                        <input type="text" class="form-control" placeholder="First name">
-                    </div>
-                     <label for="staticEmail" class="col-2 col-form-label">Email</label>
-                    <div class="col-4">
-                        <input type="text" class="form-control" placeholder="Last name">
-                    </div>
-                </div>
-
-
-                  <div class="form-row mt-3">
-                    <label for="staticEmail" class="col-2 col-form-label">Email</label>
-                    <div class="col-4">
-                        <input type="text" class="form-control" placeholder="First name">
-                    </div>
-                     <label for="staticEmail" class="col-2 col-form-label">Email</label>
-                    <div class="col-4">
-                        <input type="text" class="form-control" placeholder="Last name">
-                    </div>
-                </div>
-
-                  <div class="form-row mt-3">
-                    <label for="staticEmail" class="col-2 col-form-label">Email</label>
-                    <div class="col-4">
-                        <input type="text" class="form-control" placeholder="First name">
-                    </div>
-                     <label for="staticEmail" class="col-2 col-form-label">Email</label>
-                    <div class="col-4">
-                        <input type="text" class="form-control" placeholder="Last name">
+                     <asp:TextBox ID="TextBox10" CssClass="form-contro" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 

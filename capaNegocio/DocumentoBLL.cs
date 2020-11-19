@@ -17,6 +17,11 @@ namespace capaNegocio
             return docs;
         }
 
+        public bool AnularDcoumento(string folio)
+        {
+            daoDocumento daoDoc = new daoDocumento();
+            return daoDoc.anularDocumento(folio); ;
+        }
 
         public  bool CrearDcoumento()
         {
