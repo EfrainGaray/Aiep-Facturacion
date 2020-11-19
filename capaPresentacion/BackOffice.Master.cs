@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using capaNegocio;
 using CapaEntidades;
+
 namespace Aiep_Facturacion
 {
     public partial class BackOffice : System.Web.UI.MasterPage
@@ -18,15 +19,16 @@ namespace Aiep_Facturacion
             {
                 Response.Redirect("login",true);
             }
-         
            
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            factura1.InnerHtml = (string)Session["facturasUsuario"];
-            factura2.InnerHtml = (string)Session["facturasTotalUsuario"];
-            factura3.InnerHtml = (string)Session["totalNetoUsuario"];
-            factura4.InnerHtml = (string)Session["totalNetoTotalUsurio"];
+
+            factura1.InnerHtml = Session["facturasUsuario"].ToString();
+            factura2.InnerHtml = Application["facturasTotalUsuario"].ToString();
+            factura3.InnerHtml = Session["totalNetoUsuario"].ToString();
+            factura4.InnerHtml = Application["totalNetoTotalUsurio"].ToString();
         }
+
     }
 }
