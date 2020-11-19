@@ -77,7 +77,6 @@ namespace capaPersintencia
                 throw;
             }
 
-            return false;
         }
 
         public bool modificarFactura()
