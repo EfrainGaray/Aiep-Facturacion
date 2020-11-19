@@ -11,7 +11,7 @@ namespace capaNegocio
     public class DocumentoBLL
     {
         public static int cantidadFacturas=0;
-        public static int netoFacturas = 0;
+        public static int cantidadFacturasTotal = 0;
         public List<Documento> GetDocumentosUsers(string user)
         {
             
@@ -31,7 +31,8 @@ namespace capaNegocio
         public  bool CrearDcoumento()
         {
            cantidadFacturas++;
-           netoFacturas = netoFacturas + 2500;
+           cantidadFacturasTotal++;
+
            return true;
         }
     }   

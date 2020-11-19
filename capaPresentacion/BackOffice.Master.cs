@@ -29,8 +29,7 @@ namespace Aiep_Facturacion
            factura3.InnerHtml = Application["totalNetoUsuario"].ToString();
            factura4.InnerHtml = Application["totalNetoTotalUsurio"].ToString();
             */
-
-            factura1.InnerHtml = Application["facturasUsuario_" + user + ""].ToString();
+            factura1.InnerHtml = Application["facturaUser" + Session.SessionID].ToString();
             factura2.InnerHtml = Application["facturasTotalUsuario"].ToString();
         }
 

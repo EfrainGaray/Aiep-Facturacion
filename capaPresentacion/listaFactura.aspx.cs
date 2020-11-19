@@ -19,13 +19,7 @@ namespace capaPresentacion
             this.user = (string)Session["usuario"];
             if (!IsPostBack)
             {
-
-
-
-                this.updateTable();
-             
-             
-           
+                this.updateTable();          
             }
         }
 

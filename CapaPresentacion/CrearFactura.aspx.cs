@@ -20,7 +20,10 @@ namespace capaPresentacion
             DocumentoBLL documentBLL = new DocumentoBLL();
             /*REscato vvalores formulario y paso */
 
-            documentBLL.CrearDcoumento();
+            if (documentBLL.CrearDcoumento()) {
+                Application["facturaUser" + Session.SessionID] = (int)Application["facturaUser" + Session.SessionID] + 1;
+                Application["facturasTotalUsuario"] = (int)Application["facturasTotalUsuario"] + 1;
+            }
 
 
         }
