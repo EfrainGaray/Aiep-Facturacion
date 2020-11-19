@@ -5,12 +5,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using capaNegocio;
+using CapaEntidades;
 namespace Aiep_Facturacion
 {
     public partial class login : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+
             txtPasword.Attributes.Add("placeholder", "************");
             txtPasword.Attributes.Add("required", "required");
             txtPasword.Attributes.Add("type", "password");
@@ -35,6 +38,19 @@ namespace Aiep_Facturacion
             else
             {
                 error.Attributes.Remove("style");
+                UsuarioBLL validarUsuario = new UsuarioBLL(usuario, password);
+                if (validarUsuario.validaLogin())
+                {
+                    Usuario user = validarUsuario.User;
+                    Session["usuario"] =  user;
+                    Response.Redirect("index",true);
+                }
+                else {
+                    error.InnerHtml = "Usuario o contraseña son invalidos";
+                    error.Style.Add("opacity", "1");
+                    error.Style.Add("visibility", "visible");
+                }
+               
             }
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace capaNegocio
 {
@@ -14,6 +15,7 @@ namespace capaNegocio
             valid = valid && string.IsNullOrEmpty( txt.Trim() );
             return valid;
         }
-        
+
+        public static T GetSession<T>(string key) => HttpContext.Current?.Session?[key] != null ? (T)HttpContext.Current.Session[key] : default(T);
     }
 }
