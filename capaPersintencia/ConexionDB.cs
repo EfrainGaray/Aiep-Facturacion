@@ -16,7 +16,6 @@ namespace capaPersintencia
         public ConexionBD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["ProyectoFacturacionBD"].ConnectionString;
-
             Conexion = new SqlConnection(cadenaConexion);
         }
 

@@ -115,6 +115,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CrearFactura.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Imagen\bg-login.jpg" />
     <Content Include="Imagen\Componente 55 – 1%402x.png" />
@@ -125,6 +126,7 @@
     <Content Include="Imagen\Grupo 1563%402x.png" />
     <Content Include="Imagen\Grupo 1565%402x.png" />
     <Content Include="Imagen\Grupo 1565.png" />
+    <Content Include="Imagen\Grupo 1566%402x.png" />
     <Content Include="Imagen\logo-login.png" />
     <Content Include="Imagen\nuevas-tecnologias_azul.png" />
     <Content Include="index.aspx" />
@@ -274,6 +276,13 @@
     </Compile>
     <Compile Include="BackOffice.Master.designer.cs">
       <DependentUpon>BackOffice.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CrearFactura.aspx.cs">
+      <DependentUpon>CrearFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearFactura.aspx.designer.cs">
+      <DependentUpon>CrearFactura.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

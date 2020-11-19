@@ -50,9 +50,9 @@ namespace CapaEntidades
         public DateTime FechaEmision { get => fechaEmision; set => fechaEmision = value; }
         public string Observacion { get => observacion; set => observacion = value; }
         public string CreadoPor { get => creadoPor; set => creadoPor = value; }
-        internal Cliente Comprador { get => comprador; set => comprador = value; }
-        internal Empresa Vendedor { get => vendedor; set => vendedor = value; }
-        internal TipoDocumento TipoDoc { get => tipoDoc; set => tipoDoc = value; }
-        internal List<DetalleDocumento> DetalleDocumentos { get => detalleDocumentos; set => detalleDocumentos = value; }
+        public Cliente Comprador { get => comprador; set => comprador = value; }
+        public Empresa Vendedor { get => vendedor; set => vendedor = value; }
+        public TipoDocumento TipoDoc { get => tipoDoc; set => tipoDoc = value; }
+        public List<DetalleDocumento> DetalleDocumentos { get => detalleDocumentos; set => detalleDocumentos = value; }
     }
 }
