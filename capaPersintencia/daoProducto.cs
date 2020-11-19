@@ -110,7 +110,7 @@ namespace capaPersintencia
             {
                 ConexionBD conexion = new ConexionBD();
                 conexion.abrirConexion();
-                string sql = "SELECT * FROM producto where nombre like '@nombre'";
+                string sql = "SELECT * FROM producto where nombre like '%@nombre%'";
                 SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
 
                 sqlData.SelectCommand.Parameters.AddWithValue("@nombre", SqlDbType.VarChar);
