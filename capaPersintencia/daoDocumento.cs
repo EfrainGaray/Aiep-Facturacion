@@ -11,7 +11,7 @@ namespace capaPersintencia
 {
     public class daoDocumento
     {
-        public bool registrarFactura(Documento nuevoDocumento, Cliente comprador) {
+        public bool registrarDocumento(Documento nuevoDocumento, Cliente comprador) {
 
             try
             {
@@ -80,46 +80,220 @@ namespace capaPersintencia
             return false;
         }
 
-        public bool modificarFactura()
+        public bool modificarDocumento(Documento documentoModificar)
         {
-            return false;
-        }
-
-        public bool anularFactura()
-        {
-            return false;
-        }
-        public List<Documento> consultarFactura()
-        {/*
-            ConexionBD conexion = new ConexionBD();
-            conexion.abrirConexion();
-            string sql = "SELECT * FROM documento";
-            SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
-
-
-
-
-            DataTable dataTable = new DataTable();
-
-
-            sqlData.Fill(dataTable);
-            conexion.cerrarConexion();
-            List<Documento> documentos = new List<Documento>();
-            if (dataTable.Rows.Count > 0)
+            try
             {
-                for (int i = 0; i < dataTable.Rows.Count; i++)
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+
+        public bool anularDocumento(string folio)
+        {
+            try
+            {
+                ConexionBD conexion = new ConexionBD();
+
+                conexion.abrirConexion();
+
+                string sqlQueryDocumento = "UPDATE documento set estado = 2 where folio =@folio";
+
+                SqlCommand commandSql = new SqlCommand(sqlQueryDocumento, conexion.Conexion);
+
+
+                commandSql.Parameters.AddWithValue("@folio", SqlDbType.VarChar);
+                commandSql.Parameters["@folio"].Value = folio;
+
+                //Ejecución de query
+                int filasAfectadas = commandSql.ExecuteNonQuery();
+
+                conexion.cerrarConexion();
+
+                if (filasAfectadas > 0)
                 {
-                    Documento documentoAux = new Documento();
-                    documentoAux. = int.Parse(dataTable.Rows[i]["cantidadProducto"].ToString());
-                    documentoAux.PrecioProducto = int.Parse(dataTable.Rows[i]["precioProducto"].ToString());
-                    documentoAux.IdProducto = int.Parse(dataTable.Rows[i]["producto_id"].ToString());
-                    documentoAux.IdDocumento = int.Parse(dataTable.Rows[i]["documento_id"].ToString());
-                    documentoAux.Estado = int.Parse(dataTable.Rows[i]["estado"].ToString());
-                    documentos.Add(documentoAux);
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
-            return documentos;*/
-                return null;
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+        public List<Documento> consultarDocumento()
+        {
+
+            try
+            {
+                ConexionBD conexion = new ConexionBD();
+                conexion.abrirConexion();
+                string sql = "SELECT * FROM documento";
+                SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+
+
+
+
+                DataTable dataTable = new DataTable();
+
+
+                sqlData.Fill(dataTable);
+                conexion.cerrarConexion();
+                List<Documento> documentos = new List<Documento>();
+                if (dataTable.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+                        Documento documentoAux = new Documento();
+                        daoEmpresa empresaAux = new daoEmpresa();
+                        daoCliente clienteAux = new daoCliente();
+
+                        documentoAux.Folio = dataTable.Rows[i]["folio"].ToString();
+                        documentoAux.EstadoEmitido = int.Parse(dataTable.Rows[i]["estado"].ToString());
+                        documentoAux.SubTotal = int.Parse(dataTable.Rows[i]["subtotal"].ToString());
+                        documentoAux.Iva = int.Parse(dataTable.Rows[i]["iva"].ToString());
+                        documentoAux.Total = int.Parse(dataTable.Rows[i]["total"].ToString());
+                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        //Devuelvo también el vendedor y comprador para agregarlo al detalle de la consulta
+                        documentoAux.Vendedor = empresaAux.detalleEmpresaId(int.Parse(dataTable.Rows[i]["empresa_id"].ToString()));
+                        documentoAux.Comprador = clienteAux.detalleClienteId(int.Parse(dataTable.Rows[i]["cliente_id"].ToString()));
+
+                        //Se agrega a la lista
+                        documentos.Add(documentoAux);
+                    }
+                }
+                return documentos;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+        public List<Documento> consultarDocumentoxUsuario( string user)
+        {
+
+            try
+            {
+                ConexionBD conexion = new ConexionBD();
+                conexion.abrirConexion();
+                string sql = "SELECT * FROM documento where creadoPor= @user";
+                SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+
+                sqlData.SelectCommand.Parameters.AddWithValue("@creadoPor", SqlDbType.VarChar);
+                sqlData.SelectCommand.Parameters["@creadoPor"].Value = user;
+
+
+                DataTable dataTable = new DataTable();
+
+
+                sqlData.Fill(dataTable);
+                conexion.cerrarConexion();
+                List<Documento> documentos = new List<Documento>();
+                if (dataTable.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+                        Documento documentoAux = new Documento();
+                        daoEmpresa empresaAux = new daoEmpresa();
+                        daoCliente clienteAux = new daoCliente();
+
+                        documentoAux.Folio = dataTable.Rows[i]["folio"].ToString();
+                        documentoAux.EstadoEmitido = int.Parse(dataTable.Rows[i]["estado"].ToString());
+                        documentoAux.SubTotal = int.Parse(dataTable.Rows[i]["subtotal"].ToString());
+                        documentoAux.Iva = int.Parse(dataTable.Rows[i]["iva"].ToString());
+                        documentoAux.Total = int.Parse(dataTable.Rows[i]["total"].ToString());
+                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        //Devuelvo también el vendedor y comprador para agregarlo al detalle de la consulta
+                        documentoAux.Vendedor = empresaAux.detalleEmpresaId(int.Parse(dataTable.Rows[i]["empresa_id"].ToString()));
+                        documentoAux.Comprador = clienteAux.detalleClienteId(int.Parse(dataTable.Rows[i]["cliente_id"].ToString()));
+
+                        //Se agrega a la lista
+                        documentos.Add(documentoAux);
+                    }
+                }
+                return documentos;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        public List<Documento> consultarDocumentoxFecha(DateTime fInicial, DateTime fFinal)
+        {
+
+            try
+            {
+                ConexionBD conexion = new ConexionBD();
+                conexion.abrirConexion();
+                string sql = "SELECT * FROM documento where fechaCreacion BETWEEN @fInicial and @fFinal";
+                SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+
+                sqlData.SelectCommand.Parameters.AddWithValue("@fInicial", SqlDbType.DateTime2);
+                sqlData.SelectCommand.Parameters["@fInicial"].Value = fInicial;
+
+                sqlData.SelectCommand.Parameters.AddWithValue("@fFinal", SqlDbType.DateTime2);
+                sqlData.SelectCommand.Parameters["@fFinal"].Value = fFinal;
+
+
+                DataTable dataTable = new DataTable();
+
+
+                sqlData.Fill(dataTable);
+                conexion.cerrarConexion();
+                List<Documento> documentos = new List<Documento>();
+                if (dataTable.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+                        Documento documentoAux = new Documento();
+                        daoEmpresa empresaAux = new daoEmpresa();
+                        daoCliente clienteAux = new daoCliente();
+
+                        documentoAux.Folio = dataTable.Rows[i]["folio"].ToString();
+                        documentoAux.EstadoEmitido = int.Parse(dataTable.Rows[i]["estado"].ToString());
+                        documentoAux.SubTotal = int.Parse(dataTable.Rows[i]["subtotal"].ToString());
+                        documentoAux.Iva = int.Parse(dataTable.Rows[i]["iva"].ToString());
+                        documentoAux.Total = int.Parse(dataTable.Rows[i]["total"].ToString());
+                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        //Devuelvo también el vendedor y comprador para agregarlo al detalle de la consulta
+                        documentoAux.Vendedor = empresaAux.detalleEmpresaId(int.Parse(dataTable.Rows[i]["empresa_id"].ToString()));
+                        documentoAux.Comprador = clienteAux.detalleClienteId(int.Parse(dataTable.Rows[i]["cliente_id"].ToString()));
+
+                        //Se agrega a la lista
+                        documentos.Add(documentoAux);
+                    }
+                }
+                return documentos;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }
