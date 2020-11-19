@@ -7,7 +7,7 @@
 
         <img  class="img-fluid  border-radius-10" src="Imagen/nuevas-tecnologias_azul.png" style="min-width: 100%"/>
     </figure>
-
+     
 
 
 </asp:Content>

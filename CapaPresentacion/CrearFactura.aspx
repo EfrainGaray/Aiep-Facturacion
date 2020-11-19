@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-fluid mt-4 bg-white border-radius-10 ">
+    <div class="container-fluid mt-4 bg-white border-radius-10 p-3 ">
         <div class="row mt-3">
             <div class="col-8 text-center">
                 <img src="Imagen/Grupo 1566@2x.png" class="logo-empresa" />
@@ -17,6 +17,12 @@
                     <p class="font-weight-bold">FACTURA ELECTRONICA</p>
                     <p>N° :1234</p>
                 </div>
+                <div class="text-center">
+                    <p>S.I.I Santiago</p>
+                    <p>Santiago,10 Noviembre 2020</p>
+
+                </div>
+
             </div>
             <div class="container bg-gray p-3">
 
@@ -25,63 +31,63 @@
                     <div class="col-4">
                         <input type="text" class="form-control" placeholder="First name">
                     </div>
-                     <label for="staticEmail" class="col-2 col-form-label">Email</label>
+                    <label for="staticEmail" class="col-2 col-form-label">Email</label>
                     <div class="col-4">
                         <input type="text" class="form-control" placeholder="Last name">
                     </div>
                 </div>
 
-                  <div class="form-row mt-3">
+                <div class="form-row mt-3">
                     <label for="staticEmail" class="col-2 col-form-label">Email</label>
                     <div class="col-4">
                         <input type="text" class="form-control" placeholder="First name">
                     </div>
-                     <label for="staticEmail" class="col-2 col-form-label">Email</label>
+                    <label for="staticEmail" class="col-2 col-form-label">Email</label>
                     <div class="col-4">
                         <input type="text" class="form-control" placeholder="Last name">
                     </div>
                 </div>
 
-                  <div class="form-row mt-3">
+                <div class="form-row mt-3">
                     <label for="staticEmail" class="col-2 col-form-label">Email</label>
                     <div class="col-4">
                         <input type="text" class="form-control" placeholder="First name">
                     </div>
-                     <label for="staticEmail" class="col-2 col-form-label">Email</label>
+                    <label for="staticEmail" class="col-2 col-form-label">Email</label>
                     <div class="col-4">
                         <input type="text" class="form-control" placeholder="Last name">
                     </div>
                 </div>
 
 
-                  <div class="form-row mt-3">
+                <div class="form-row mt-3">
                     <label for="staticEmail" class="col-2 col-form-label">Email</label>
                     <div class="col-4">
                         <input type="text" class="form-control" placeholder="First name">
                     </div>
-                     <label for="staticEmail" class="col-2 col-form-label">Email</label>
+                    <label for="staticEmail" class="col-2 col-form-label">Email</label>
                     <div class="col-4">
                         <input type="text" class="form-control" placeholder="Last name">
                     </div>
                 </div>
 
-                  <div class="form-row mt-3">
+                <div class="form-row mt-3">
                     <label for="staticEmail" class="col-2 col-form-label">Email</label>
                     <div class="col-4">
                         <input type="text" class="form-control" placeholder="First name">
                     </div>
-                     <label for="staticEmail" class="col-2 col-form-label">Email</label>
+                    <label for="staticEmail" class="col-2 col-form-label">Email</label>
                     <div class="col-4">
                         <input type="text" class="form-control" placeholder="Last name">
                     </div>
                 </div>
-                
-               
+
+
 
             </div>
-             <div class="container form-footer text-right mt-3">
-                    <button class="btn btn-info display-1">SIGUIENTE</button>
-                </div>
+            <div class="container form-footer text-right mt-3">
+                <button class="btn cerrarColor display-1">SIGUIENTE</button>
+            </div>
         </div>
-        </div>
+    </div>
 </asp:Content>
