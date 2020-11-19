@@ -18,22 +18,40 @@ namespace capaPresentacion
         private static int contarFacturasTotalUsuario = 0;
         private static int contarNetoTotalUsuario = 0;
         private static int contarNetoUsuario = 0;
+        private static string user;   
         void Application_Start(object sender, EventArgs e)
         {
             // Código que se ejecuta al iniciar la aplicación
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Application["facturasTotalUsuario"] = 0;
-            Application["totalNetoTotalUsurio"] = 0;
-         
+           
+
         }
         void Session_Start(Object sender, EventArgs e)
         {
-            Session["facturasUsuario"] =0;
-            Session["totalNetoUsuario"] = 0;
-            
+
+            Application.Lock();
+            user = (string)Session["usuario"];
+            Application["facturasUsuario_" + user + ""] = 0;
+            Application["facturasTotalUsuario"] = 0;
+            Application["totalNetoUsuario"] = 0;
+            Application["totalNetoTotalUsurio"] = 0;
+           
+           
+            Application.UnLock();
         }
 
+        void Session_End(object sender, EventArgs e)
+        {
+    
+          
+        }
+        void Application_EndRequest(object sender, EventArgs e)
+        {
+            Application["facturasUsuario_"+ user + ""] = DocumentoBLL.cantidadFacturas;
+            Application["facturasTotalUsuario"] = DocumentoBLL.cantidadFacturas;
+        }
+        /*
         void Application_EndRequest(object sender, EventArgs e)
         {
             DocumentoBLL.cantidadFacturas++;
@@ -51,6 +69,7 @@ namespace capaPresentacion
             Session["totalNetoUsuario"] = contarNetoUsuario;
 
         }
+        */
 
     }
 }

@@ -17,9 +17,11 @@ namespace capaNegocio
             
             daoDocumento daoDoc = new daoDocumento();
             List<Documento> docs =  daoDoc.consultarDocumentoxUsuario(user);
+            
             return docs;
-        }
 
+        }
+        
         public bool AnularDcoumento(string folio)
         {
             daoDocumento daoDoc = new daoDocumento();
@@ -28,7 +30,8 @@ namespace capaNegocio
 
         public  bool CrearDcoumento()
         {
-           
+           cantidadFacturas++;
+           netoFacturas = netoFacturas + 2500;
            return true;
         }
     }   

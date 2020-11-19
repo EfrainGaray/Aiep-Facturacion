@@ -23,11 +23,15 @@ namespace Aiep_Facturacion
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            /* 
+           factura1.InnerHtml = Application["facturasUsuario"].ToString();
+           factura2.InnerHtml = Application["facturasTotalUsuario"].ToString();
+           factura3.InnerHtml = Application["totalNetoUsuario"].ToString();
+           factura4.InnerHtml = Application["totalNetoTotalUsurio"].ToString();
+            */
 
-            factura1.InnerHtml = Session["facturasUsuario"].ToString();
+            factura1.InnerHtml = Application["facturasUsuario_" + user + ""].ToString();
             factura2.InnerHtml = Application["facturasTotalUsuario"].ToString();
-            factura3.InnerHtml = Session["totalNetoUsuario"].ToString();
-            factura4.InnerHtml = Application["totalNetoTotalUsurio"].ToString();
         }
 
     }
