@@ -235,11 +235,9 @@ namespace capaPersintencia
             {
                 ConexionBD conexion = new ConexionBD();
                 conexion.abrirConexion();
-                string sql = "SELECT * FROM documento where creadoPor= @user";
+                string sql = "SELECT * FROM documento where creadoPor=@creadoPor";
                 SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
-
-                sqlData.SelectCommand.Parameters.AddWithValue("@creadoPor", SqlDbType.VarChar);
-                sqlData.SelectCommand.Parameters["@creadoPor"].Value = user;
+                sqlData.SelectCommand.Parameters.Add("@creadoPor", SqlDbType.VarChar, 10).Value = user;
 
 
                 DataTable dataTable = new DataTable();

@@ -9,11 +9,12 @@ namespace capaNegocio
 {
     public class DocumentoBLL
     {
-        public List<Documento> GetDocumentos()
+        public List<Documento> GetDocumentosUsers(string user)
         {
-            List<Documento> documentos = new List<Documento>();
-
-            return documentos;
+            
+            daoDocumento daoDoc = new daoDocumento();
+            List<Documento> docs =  daoDoc.consultarDocumentoxUsuario(user);
+            return docs;
         }
 
 
