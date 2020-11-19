@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CapaEntidades;
 using capaPersintencia;
+
 namespace capaNegocio
 {
     public class DocumentoBLL

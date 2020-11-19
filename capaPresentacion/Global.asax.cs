@@ -13,6 +13,10 @@ namespace capaPresentacion
 {
     public class Global : HttpApplication
     {
+        private static int contarFacturasUsuario = 0;
+        private static int contarFacturasTotalUsuario = 0;
+        private static int contarNetoTotalUsuario = 0;
+        private static int contarNetoUsuario = 0;
         void Application_Start(object sender, EventArgs e)
         {
             // Código que se ejecuta al iniciar la aplicación
@@ -22,13 +26,31 @@ namespace capaPresentacion
             Application["totalNetoTotalUsurio"] = 0;
          
         }
-        protected void Session_Start(Object sender, EventArgs e)
+        void Session_Start(Object sender, EventArgs e)
         {
             Session["facturasUsuario"] =0;
             Session["totalNetoUsuario"] = 0;
             
         }
 
+        void Application_EndRequest(object sender, EventArgs e)
+        {
+            contarFacturasTotalUsuario++;
+            contarNetoTotalUsuario++;
+            Application["facturasTotalUsuario"] = contarFacturasTotalUsuario;
+            Application["totalNetoTotalUsurio"] = contarNetoTotalUsuario;
+        }
+        void Session_EndRequest(object sender, EventArgs e)
+        {
+            contarFacturasUsuario ++;
+            contarNetoUsuario++;
 
+            Session["facturasUsuario"] = contarFacturasUsuario;
+            Session["totalNetoUsuario"] = contarNetoUsuario;
+
+        }
+        public static bool confirmacionRegistro() {
+            return false;
+        }
     }
 }
