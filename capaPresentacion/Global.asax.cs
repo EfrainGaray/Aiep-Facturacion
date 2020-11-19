@@ -7,6 +7,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using capaPresentacion;
+using capaNegocio;
 
 namespace capaPresentacion
 
@@ -35,10 +36,11 @@ namespace capaPresentacion
 
         void Application_EndRequest(object sender, EventArgs e)
         {
-            contarFacturasTotalUsuario++;
-            contarNetoTotalUsuario++;
-            Application["facturasTotalUsuario"] = contarFacturasTotalUsuario;
-            Application["totalNetoTotalUsurio"] = contarNetoTotalUsuario;
+            DocumentoBLL.cantidadFacturas++;
+            DocumentoBLL.netoFacturas++;
+
+            Application["facturasTotalUsuario"] = DocumentoBLL.cantidadFacturas;
+            Application["totalNetoTotalUsurio"] = DocumentoBLL.netoFacturas;
         }
         void Session_EndRequest(object sender, EventArgs e)
         {
@@ -49,8 +51,6 @@ namespace capaPresentacion
             Session["totalNetoUsuario"] = contarNetoUsuario;
 
         }
-        public static bool confirmacionRegistro() {
-            return false;
-        }
+
     }
 }

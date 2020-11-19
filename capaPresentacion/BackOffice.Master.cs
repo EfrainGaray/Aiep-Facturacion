@@ -23,9 +23,7 @@ namespace Aiep_Facturacion
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            int aux = (int)Session["facturasUsuario"];
-            aux++;
-            Session["facturasUsuario"] = aux;
+
             factura1.InnerHtml = Session["facturasUsuario"].ToString();
             factura2.InnerHtml = Application["facturasTotalUsuario"].ToString();
             factura3.InnerHtml = Session["totalNetoUsuario"].ToString();
