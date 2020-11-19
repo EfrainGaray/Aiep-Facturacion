@@ -18,14 +18,15 @@ namespace CapaEntidades
 
         }
 
-        public Empresa(string rut, string razonSocial, string giro, string email, string direccion, string telefono)
+        public Empresa(string rut, string razonSocial, string giro, string email, string direccion, string telefono, int idEmpresa)
         {
-            this.rut = rut;
-            this.razonSocial = razonSocial;
-            this.giro = giro;
-            this.email = email;
-            this.direccion = direccion;
-            this.telefono = telefono;
+            this.Rut = rut;
+            this.RazonSocial = razonSocial;
+            this.Giro = giro;
+            this.Email = email;
+            this.Direccion = direccion;
+            this.Telefono = telefono;
+            this.IdEmpresa = idEmpresa;
         }
 
         public string Rut { get => rut; set => rut = value; }
@@ -34,6 +35,6 @@ namespace CapaEntidades
         public string Email { get => email; set => email = value; }
         public string Direccion { get => direccion; set => direccion = value; }
         public string Telefono { get => telefono; set => telefono = value; }
-        public int IdEmpresa { get => IdEmpresa; set => IdEmpresa = value; }
+        public int IdEmpresa { get => idEmpresa; set => idEmpresa = value; }
     }
 }

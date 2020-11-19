@@ -49,6 +49,43 @@ namespace capaPersintencia
             
         }
 
+        public bool eliminarDDocumento( int id)
+        {
+            try
+            {
+                ConexionBD conexion = new ConexionBD();
+                conexion.abrirConexion();
+                string sqlQuery = "DELETE FROM detalleDocumento where id= @id";
+                SqlCommand commandSql = new SqlCommand(sqlQuery, conexion.Conexion);
+
+                DataTable dataTable = new DataTable();
+
+                commandSql.Parameters.AddWithValue("@id", SqlDbType.Int);
+                commandSql.Parameters["@id"].Value = id;
+
+                conexion.cerrarConexion();
+                //Ejecución de query
+                int filasAfectadas = commandSql.ExecuteNonQuery();
+
+                conexion.cerrarConexion();
+
+                if (filasAfectadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
         //Ingresar y obtener detalle del documento
         public int ingresarDetalle(List<DetalleDocumento> detalle)
         {

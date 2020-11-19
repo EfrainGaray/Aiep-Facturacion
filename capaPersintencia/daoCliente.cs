@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -11,8 +11,54 @@ namespace capaPersintencia
 {
     public class daoCliente
     {
-        public bool registrarCliente() {
-            return false;
+        public bool registrarCliente( Cliente nuevoCliente) {
+            try
+            {
+
+                ConexionBD conexion = new ConexionBD();
+
+                conexion.abrirConexion();
+
+                string sqlQuery = "INSERT INTO cliente (rut, razonSocial, direccion, telefono, email) " +
+                             "values(@rut, @razonSocial, @direccion , @telefono , @email)";
+
+                SqlCommand commandSql = new SqlCommand(sqlQuery, conexion.Conexion);
+
+
+                commandSql.Parameters.AddWithValue("@rut", SqlDbType.VarChar);
+                commandSql.Parameters["@rut"].Value = nuevoCliente.Rut;
+
+                commandSql.Parameters.AddWithValue("@razonSocial", SqlDbType.VarChar);
+                commandSql.Parameters["@razonSocial"].Value = nuevoCliente.RazonSocial;
+
+                commandSql.Parameters.AddWithValue("@direccion", SqlDbType.Int);
+                commandSql.Parameters["@direccion"].Value = nuevoCliente.Direccion;
+
+                commandSql.Parameters.AddWithValue("@telefono", SqlDbType.VarChar);
+                commandSql.Parameters["@telefono"].Value = nuevoCliente.Telefono;
+
+                commandSql.Parameters.AddWithValue("@email", SqlDbType.Int);
+                commandSql.Parameters["@email"].Value = nuevoCliente.Email;
+
+                //Ejecución de query
+                int filasAfectadas = commandSql.ExecuteNonQuery();
+
+                conexion.cerrarConexion();
+
+                if (filasAfectadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool modificarCliente()

@@ -77,21 +77,65 @@ namespace capaPersintencia
                 throw;
             }
 
-            return false;
         }
 
         public bool modificarDocumento(Documento documentoModificar)
         {
             try
             {
-                return false;
+                ConexionBD conexion = new ConexionBD();
+
+                conexion.abrirConexion();
+
+                string sqlQueryDocumento = "UPDATE documento set subtotal=@subTotal, iva=@iva, total=@total, tipoPago=@tipoPago, cliente_id=@cliente_id, observacion=@observacion, creadoPor=@creadoPor  where folio =@folio";
+
+                SqlCommand commandSql = new SqlCommand(sqlQueryDocumento, conexion.Conexion);
+
+                commandSql.Parameters.AddWithValue("@subtotal", SqlDbType.VarChar);
+                commandSql.Parameters["@subtotal"].Value = documentoModificar.Folio;
+
+                commandSql.Parameters.AddWithValue("@iva", SqlDbType.VarChar);
+                commandSql.Parameters["@iva"].Value = documentoModificar.Iva;
+
+                commandSql.Parameters.AddWithValue("@total", SqlDbType.VarChar);
+                commandSql.Parameters["@total"].Value = documentoModificar.Total;
+
+                commandSql.Parameters.AddWithValue("@tipoPago", SqlDbType.VarChar);
+                commandSql.Parameters["@tipoPago"].Value = documentoModificar.TipoPago;
+
+                commandSql.Parameters.AddWithValue("@cliente_id", SqlDbType.VarChar);
+                commandSql.Parameters["@cliente_id"].Value = documentoModificar.Comprador.IdCliente;
+
+                commandSql.Parameters.AddWithValue("@observacion", SqlDbType.VarChar);
+                commandSql.Parameters["@observacion"].Value = documentoModificar.Observacion;
+
+                commandSql.Parameters.AddWithValue("@creadoPor", SqlDbType.VarChar);
+                commandSql.Parameters["@creadoPor"].Value = documentoModificar.CreadoPor;
+
+
+                commandSql.Parameters.AddWithValue("@folio", SqlDbType.VarChar);
+                commandSql.Parameters["@folio"].Value = documentoModificar.Folio;
+
+                //Ejecución de query
+                int filasAfectadas = commandSql.ExecuteNonQuery();
+
+                conexion.cerrarConexion();
+
+                if (filasAfectadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception)
             {
 
                 throw;
             }
-            
+
         }
 
         public bool anularDocumento(string folio)
@@ -164,9 +208,9 @@ namespace capaPersintencia
                         documentoAux.Iva = int.Parse(dataTable.Rows[i]["iva"].ToString());
                         documentoAux.Total = int.Parse(dataTable.Rows[i]["total"].ToString());
                         documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
-                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
-                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
-                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        documentoAux.Observacion = dataTable.Rows[i]["observacion"].ToString();
+                        documentoAux.CreadoPor = dataTable.Rows[i]["creadoPor"].ToString();
+                        documentoAux.FechaEmision = DateTime.Parse(dataTable.Rows[i]["fechaEmision"].ToString());
                         //Devuelvo también el vendedor y comprador para agregarlo al detalle de la consulta
                         documentoAux.Vendedor = empresaAux.detalleEmpresaId(int.Parse(dataTable.Rows[i]["empresa_id"].ToString()));
                         documentoAux.Comprador = clienteAux.detalleClienteId(int.Parse(dataTable.Rows[i]["cliente_id"].ToString()));
@@ -191,11 +235,9 @@ namespace capaPersintencia
             {
                 ConexionBD conexion = new ConexionBD();
                 conexion.abrirConexion();
-                string sql = "SELECT * FROM documento where creadoPor= @user";
+                string sql = "SELECT * FROM documento where creadoPor=@creadoPor";
                 SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
-
-                sqlData.SelectCommand.Parameters.AddWithValue("@creadoPor", SqlDbType.VarChar);
-                sqlData.SelectCommand.Parameters["@creadoPor"].Value = user;
+                sqlData.SelectCommand.Parameters.Add("@creadoPor", SqlDbType.VarChar, 10).Value = user;
 
 
                 DataTable dataTable = new DataTable();
@@ -218,9 +260,9 @@ namespace capaPersintencia
                         documentoAux.Iva = int.Parse(dataTable.Rows[i]["iva"].ToString());
                         documentoAux.Total = int.Parse(dataTable.Rows[i]["total"].ToString());
                         documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
-                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
-                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
-                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        documentoAux.Observacion = dataTable.Rows[i]["observacion"].ToString();
+                        documentoAux.CreadoPor = dataTable.Rows[i]["creadoPor"].ToString();
+                        documentoAux.FechaEmision = DateTime.Parse(dataTable.Rows[i]["fechaEmision"].ToString());
                         //Devuelvo también el vendedor y comprador para agregarlo al detalle de la consulta
                         documentoAux.Vendedor = empresaAux.detalleEmpresaId(int.Parse(dataTable.Rows[i]["empresa_id"].ToString()));
                         documentoAux.Comprador = clienteAux.detalleClienteId(int.Parse(dataTable.Rows[i]["cliente_id"].ToString()));
@@ -275,9 +317,9 @@ namespace capaPersintencia
                         documentoAux.Iva = int.Parse(dataTable.Rows[i]["iva"].ToString());
                         documentoAux.Total = int.Parse(dataTable.Rows[i]["total"].ToString());
                         documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
-                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
-                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
-                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        documentoAux.Observacion = dataTable.Rows[i]["observacion"].ToString();
+                        documentoAux.CreadoPor = dataTable.Rows[i]["creadoPor"].ToString();
+                        documentoAux.FechaEmision = DateTime.Parse(dataTable.Rows[i]["fechaEmision"].ToString());
                         //Devuelvo también el vendedor y comprador para agregarlo al detalle de la consulta
                         documentoAux.Vendedor = empresaAux.detalleEmpresaId(int.Parse(dataTable.Rows[i]["empresa_id"].ToString()));
                         documentoAux.Comprador = clienteAux.detalleClienteId(int.Parse(dataTable.Rows[i]["cliente_id"].ToString()));
