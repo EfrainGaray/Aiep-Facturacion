@@ -74,5 +74,10 @@ namespace capaPresentacion
         {
             Response.Write("<script>alert('" + data + "');</script>");
         }
+
+        protected void Borrar_Click1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
