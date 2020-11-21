@@ -12,15 +12,19 @@ namespace capaPersintencia
     public class daoDocumento
     {
         public bool registrarDocumento(Documento nuevoDocumento) {
+            daoCliente aux = new daoCliente();
 
+            if (!aux.clienteExiste(nuevoDocumento.Comprador.Rut)) {
+                aux.registrarCliente(nuevoDocumento.Comprador);
+            }
             try
             {
                 ConexionBD conexion = new ConexionBD();
 
                 conexion.abrirConexion();
 
-                string sqlQueryDocumento = "INSERT INTO documento (folio, estado, subtotal, iva, total, tipoPago, cliente_id, empresa_id, tipoDocumento_id, fechaEmision, observacion, creadoPor) " +
-                             "values(@folio, @estado, @subtotal, @iva, @total, @tipoPago, @cliente_id, @empresa_id, @tipoDocumento_id, @fechaEmision, @observacion, @creadoPor)";
+                string sqlQueryDocumento = "INSERT INTO documento (folio, estado, subtotal, iva, total, tipoPago, cliente_id, empresa_id, tipoDocumento_id, observacion, creadoPor) " +
+                             "values(@folio, @estado, @subtotal, @iva, @total, @tipoPago, @cliente_id, @empresa_id, @tipoDocumento_id, @observacion, @creadoPor)";
 
                 SqlCommand commandSql = new SqlCommand(sqlQueryDocumento, conexion.Conexion);
 
@@ -43,18 +47,15 @@ namespace capaPersintencia
                 commandSql.Parameters.AddWithValue("@tipoPago", SqlDbType.SmallInt);
                 commandSql.Parameters["@tipoPago"].Value = nuevoDocumento.TipoPago;
 
-                commandSql.Parameters.AddWithValue("@fechaEmision", SqlDbType.DateTime2);
-                commandSql.Parameters["@fechaEmision"].Value = nuevoDocumento.FechaEmision;
-
                 commandSql.Parameters.AddWithValue("@observacion", SqlDbType.VarChar);
-                commandSql.Parameters["@observacion"].Value = nuevoDocumento.Observacion;
+                commandSql.Parameters["@observacion"].Value = "Creación de documento";
 
                 commandSql.Parameters.AddWithValue("@creadoPor", SqlDbType.VarChar);
                 commandSql.Parameters["@creadoPor"].Value = nuevoDocumento.CreadoPor;
 
                 //ID de relacionados al documento
                 commandSql.Parameters.AddWithValue("@cliente_id", SqlDbType.Int);
-                commandSql.Parameters["@cliente_id"].Value = nuevoDocumento.Comprador.IdCliente;
+                commandSql.Parameters["@cliente_id"].Value = aux.getIdCliente(nuevoDocumento.Comprador.Rut);
 
                 commandSql.Parameters.AddWithValue("@empresa_id", SqlDbType.Int);
                 commandSql.Parameters["@empresa_id"].Value = nuevoDocumento.Vendedor.IdEmpresa;
@@ -113,7 +114,7 @@ namespace capaPersintencia
                 commandSql.Parameters["@cliente_id"].Value = documentoModificar.Comprador.IdCliente;
 
                 commandSql.Parameters.AddWithValue("@observacion", SqlDbType.VarChar);
-                commandSql.Parameters["@observacion"].Value = documentoModificar.Observacion;
+                commandSql.Parameters["@observacion"].Value = "Creación de documento";
 
                 commandSql.Parameters.AddWithValue("@creadoPor", SqlDbType.VarChar);
                 commandSql.Parameters["@creadoPor"].Value = documentoModificar.CreadoPor;
@@ -321,7 +322,7 @@ namespace capaPersintencia
                         documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
                         documentoAux.Observacion = dataTable.Rows[i]["observacion"].ToString();
                         documentoAux.CreadoPor = dataTable.Rows[i]["creadoPor"].ToString();
-                        documentoAux.FechaEmision = DateTime.Parse(dataTable.Rows[i]["fechaEmision"].ToString());
+                        documentoAux.FechaEmision = Convert.ToDateTime(dataTable.Rows[i]["fechaEmision"].ToString());
                         //Devuelvo también el vendedor y comprador para agregarlo al detalle de la consulta
                         documentoAux.Vendedor = empresaAux.detalleEmpresaId(int.Parse(dataTable.Rows[i]["empresa_id"].ToString()));
                         documentoAux.Comprador = clienteAux.detalleClienteId(int.Parse(dataTable.Rows[i]["cliente_id"].ToString()));

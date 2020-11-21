@@ -11,6 +11,77 @@ namespace capaPersintencia
 {
     public class daoCliente
     {
+
+        public bool clienteExiste(string rut)
+        {
+            try
+            {
+                ConexionBD conexion = new ConexionBD();
+                conexion.abrirConexion();
+                string sql = "SELECT * FROM cliente where rut=@rut";
+                SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+
+                sqlData.SelectCommand.Parameters.AddWithValue("@rut", SqlDbType.VarChar);
+                sqlData.SelectCommand.Parameters["@rut"].Value = rut;
+
+
+                DataTable dataTable = new DataTable();
+
+
+                sqlData.Fill(dataTable);
+                conexion.cerrarConexion();
+                Cliente clienteAux = new Cliente();
+                if (dataTable.Rows.Count > 0)
+                {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        public int getIdCliente(string rut) {
+            try
+            {
+                ConexionBD conexion = new ConexionBD();
+                conexion.abrirConexion();
+                string sql = "SELECT * FROM cliente where rut=@rut";
+                SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+
+                sqlData.SelectCommand.Parameters.AddWithValue("@rut", SqlDbType.VarChar);
+                sqlData.SelectCommand.Parameters["@rut"].Value = rut;
+
+
+                DataTable dataTable = new DataTable();
+
+
+                sqlData.Fill(dataTable);
+                conexion.cerrarConexion();
+                int idCliente=-1;
+                if (dataTable.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+
+                        idCliente = int.Parse(dataTable.Rows[i]["id"].ToString()) ;
+                    }
+                }
+
+                return idCliente;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public bool registrarCliente( Cliente nuevoCliente) {
             try
             {
@@ -115,6 +186,49 @@ namespace capaPersintencia
                 throw;
             }
             
+        }
+
+        public Cliente detalleClienteRut(string rut)
+        {
+            try
+            {
+                ConexionBD conexion = new ConexionBD();
+                conexion.abrirConexion();
+                string sql = "SELECT * FROM cliente where rut=@rut";
+                SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+
+                sqlData.SelectCommand.Parameters.AddWithValue("@rut", SqlDbType.VarChar);
+                sqlData.SelectCommand.Parameters["@rut"].Value = rut;
+
+
+                DataTable dataTable = new DataTable();
+
+
+                sqlData.Fill(dataTable);
+                conexion.cerrarConexion();
+                Cliente clienteAux = new Cliente();
+                if (dataTable.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+
+                        clienteAux.Rut = dataTable.Rows[i]["rut"].ToString();
+                        clienteAux.RazonSocial = dataTable.Rows[i]["razonSocial"].ToString();
+                        clienteAux.Direccion = dataTable.Rows[i]["direccion"].ToString();
+                        clienteAux.Email = dataTable.Rows[i]["email"].ToString();
+                        clienteAux.Telefono = dataTable.Rows[i]["telefono"].ToString();
+                        clienteAux.IdCliente= int.Parse(dataTable.Rows[i]["id"].ToString()) ; 
+                    }
+                }
+
+                return clienteAux;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }

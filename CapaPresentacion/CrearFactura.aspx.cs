@@ -56,9 +56,9 @@ namespace capaPresentacion
                 string ciudad  = txtCiudad.Text;
                 string comuna = txtComuna.Text;
                 string conPago = txtCondPago.Text;
-                string giro = txtGiro.Text;
+                string rSocial = txtNombre.Text;
 
-                Cliente cli = new Cliente(giro, rut, direccion, telefono, email);
+                Cliente cli = new Cliente(rSocial, rut, direccion, telefono, email);
                 DocumentoBLL documentBLL = new DocumentoBLL();
                 Documento documento = new Documento(folio,0,cli,empresa,new TipoDocumento("Factura Electronica",1),user.User);
 

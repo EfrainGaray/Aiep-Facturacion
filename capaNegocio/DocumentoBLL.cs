@@ -60,8 +60,8 @@ namespace capaNegocio
 
         public  bool CrearDcoumento(Documento documento)
         {
-
             daoDocumento dao = new daoDocumento();
+
             if (dao.registrarDocumento(documento))
             {
                 cantidadFacturas++;
