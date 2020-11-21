@@ -11,13 +11,13 @@ namespace capaPresentacion
 {
     public partial class listaFactura : System.Web.UI.Page
     {
-        string user;
+        Usuario user;
         DocumentoBLL doc = new DocumentoBLL();
         DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.user = (string)Session["usuario"];
-            if (!IsPostBack)
+            this.user = (Usuario)Session["usuario"];
+            if (!IsPostBack) 
             {
                 this.updateTable();          
             }
@@ -63,7 +63,7 @@ namespace capaPresentacion
 
 
             DocumentoBLL docBLL = new DocumentoBLL();
-            List<Documento> docs = docBLL.GetDocumentosUsers(this.user);
+            List<Documento> docs = docBLL.GetDocumentosUsers(this.user.User);
             foreach (var doc in docs)
             {
                 string estado = "Borrador";

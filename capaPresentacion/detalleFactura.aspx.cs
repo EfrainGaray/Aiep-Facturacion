@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using capaNegocio;
+using CapaEntidades;
+using System.Globalization;
 
 namespace capaPresentacion
 {
@@ -12,6 +15,19 @@ namespace capaPresentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string folio = Request.QueryString["folio"];
+
+            DocumentoBLL documentoBLL = new DocumentoBLL();
+            
+            Documento doc = documentoBLL.GetDocumentosxFolio(folio)[0];
+
+            nombreEmpresa.InnerHtml = doc.Vendedor.RazonSocial;
+            telefono.InnerHtml = doc.Vendedor.Telefono;
+            giro.InnerHtml = doc.Vendedor.Giro;
+            folioh.InnerHtml = folio;
+            fecha.InnerHtml = DateTime.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-ES"));
+            
+
             if (!IsPostBack)
             {
                 // Create a datatable as a DataSource of your GridView
