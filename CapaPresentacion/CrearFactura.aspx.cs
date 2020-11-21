@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using capaNegocio;
 using CapaEntidades;
+using System.Globalization;
+
 namespace capaPresentacion
 {
     public partial class CrearFactura : System.Web.UI.Page
@@ -19,7 +21,13 @@ namespace capaPresentacion
             Random r = new Random();
             folio = r.Next().ToString();
             txtFolio.InnerText = folio;
-          
+            EmpresaBLL empresaBLL = new EmpresaBLL();
+            empresa = empresaBLL.getEmpresa(user.IdEmpresa);
+            nombreEmpresa.InnerHtml = empresa.RazonSocial;
+            giro.InnerHtml = empresa.Giro;
+            fono.InnerHtml = empresa.Telefono;
+            rut.InnerHtml = empresa.Rut;
+            fecha.InnerHtml = DateTime.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-ES"));
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -52,8 +60,9 @@ namespace capaPresentacion
 
                 Cliente cli = new Cliente(giro, rut, direccion, telefono, email);
                 DocumentoBLL documentBLL = new DocumentoBLL();
+                Documento documento = new Documento(folio, 0, cli, empresa, 1, user.User);
 
-                if (documentBLL.CrearDcoumento(cli,this.folio))
+                if (documentBLL.CrearDcoumento(documento))
                 {
                     Application["facturaUser" + Session.SessionID] = (int)Application["facturaUser" + Session.SessionID] + 1;
                     Application["facturasTotalUsuario"] = (int)Application["facturasTotalUsuario"] + 1;

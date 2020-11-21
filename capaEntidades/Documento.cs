@@ -7,21 +7,33 @@ namespace CapaEntidades
     {
         private string folio;
         private int estadoEmitido;
+        private Cliente comprador;
+        private Empresa vendedor;
+        private TipoDocumento tipoDoc;
+        private string creadoPor;
+
         private int subTotal;
         private int total;
         private int iva;
         private int tipoPago;
-        private Cliente comprador;
-        private Empresa vendedor;
-        private TipoDocumento tipoDoc;
         private List<DetalleDocumento> detalleDocumentos;
         private DateTime fechaEmision;
         private string observacion;
-        private string creadoPor;
+        
 
         public Documento()
         {
            
+        }
+
+        public Documento(string folio, int estadoEmitido, Cliente comprador, Empresa vendedor, TipoDocumento tipoDoc, string creadoPor)
+        {
+            this.folio = folio;
+            this.estadoEmitido = estadoEmitido;
+            this.comprador = comprador;
+            this.vendedor = vendedor;
+            this.tipoDoc = tipoDoc;
+            this.creadoPor = creadoPor;
         }
 
         public Documento(string folio, int estadoEmitido, int subTotal, int total, int iva, int tipoPago, Cliente comprador, Empresa vendedor, TipoDocumento tipoDoc, List<DetalleDocumento> detalleDocumentos, DateTime fechaEmision, string observacion, string creadoPor)

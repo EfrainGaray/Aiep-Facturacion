@@ -9,19 +9,19 @@
         <div class="row mt-3">
             <div class="col-8 text-center">
                 <img src="Imagen/Grupo 1566@2x.png" class="logo-empresa" />
-                <h1 class="mt-5 fs-26">PALERMO ELECTRONICS LTDA.</h1>
-                <p class="mt-5 fs-22">Giro: Venta de artículos electrónicos etc.</p>
-                <p class="mt-5">Fono:+56912345678.</p>
+                <h1 class="mt-5 fs-26" runat="server" id="nombreEmpresa"></h1>
+                <p class="mt-5 fs-22">Giro: <span runat="server" id="giro"> </span></p>
+                <p class="mt-5">Fono:<span runat="server" id="fono"> </span></p>
             </div>
             <div class="col-4">
                 <div class="factura-folio text-center p-2 mt-3">
-                    <p>R.U.T:<span>12.345.678-9</span> </p>
+                    <p>R.U.T:<span runat="server" id="rut">12.345.678-9</span> </p>
                     <p class="font-weight-bold">FACTURA ELECTRONICA</p>
                     <p>N° :<span runat="server" id="txtFolio"> </span></p>
                 </div>
                 <div class="text-center">
                     <p>S.I.I Santiago</p>
-                    <p>Santiago,10 Noviembre 2020</p>
+                    <p runat="server" id="fecha"></p>
 
                 </div>
 

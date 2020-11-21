@@ -58,11 +58,18 @@ namespace capaNegocio
             return daoDoc.anularDocumento(folio); ;
         }
 
-        public  bool CrearDcoumento(Cliente cli, string folio)
+        public  bool CrearDcoumento(Documento documento)
         {
-           cantidadFacturas++;
-           cantidadFacturasTotal++;
 
+            daoDocumento dao = new daoDocumento();
+            if (dao.registrarDocumento(documento))
+            {
+                cantidadFacturas++;
+                cantidadFacturasTotal++;
+            }
+            else {
+                return false;
+            }
            return true;
         }
     }   
