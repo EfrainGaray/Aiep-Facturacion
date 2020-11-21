@@ -28,14 +28,25 @@ namespace capaPresentacion
         {
             LinkButton button = (LinkButton)sender;
             string folio = (string)button.Attributes["data-folio"];
-            if (this.doc.AnularDcoumento(folio))
+
+            DocumentoBLL docBLL = new DocumentoBLL();
+            List<Documento> docs = docBLL.GetDocumentosxFolio(folio);
+
+            foreach (Documento auxDocumento in docs)
             {
-                debug("Factura Anulada con exito");
-                this.updateTable();
-            }
-            else
-            {
-                debug("La Factura ya esta anulada");
+                if (auxDocumento.EstadoEmitido == 0)
+                {
+                    debug("La Factura ya se encuentra en estado Borrados, no es posible anular.");
+                }
+                else if (auxDocumento.EstadoEmitido == 2)
+                {
+                    debug("La Factura ya se encuentra en estado Borrados, no es posible anular.");
+                }
+                else if (this.doc.AnularDcoumento(folio))
+                {
+                    debug("Factura Anulada con exito");
+                    this.updateTable();
+                }
             }
         }
 
