@@ -10,7 +10,6 @@ namespace capaNegocio
 {
     public static class Utils
     {
-        public static Object formulario ;
         public static bool CheckString(string txt)
         {
 
