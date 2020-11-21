@@ -26,9 +26,11 @@
         <div class="container-fluid h-100">
             <div class="row justify-content-center h-100 pt-5">
                 <div class="col-2 ">
+                    <a href="/index"
                     <figure class="backoffice">
                         <img class="img-fluid" src="Imagen/logo-login.png" />
                     </figure>
+                        </a>
                     <div class="row">
                         <div class="col-12">
                             <div class="btn-group w-100 " role="group">

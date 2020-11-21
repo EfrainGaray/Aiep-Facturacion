@@ -28,32 +28,28 @@
                 <div class="container bg-gray p-3">
 
                     <div class="form-row">
-                        <label for="staticEmail" class="col-2 col-form-label">Señor(es):</label>
+                        <label for="txtSenior" class="col-2 col-form-label">Señor(es):</label>
                         <div class="col-4">
-                            <asp:TextBox ID="txtSeñor" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtSenior" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
-                        <label for="staticEmail" class="col-2 col-form-label">Telefono:</label>
+                        <label for="txtTelefono" class="col-2 col-form-label">Telefono:</label>
                         <div class="col-4">
                             <asp:TextBox ID="txtTelefono" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                     </div>
 
                     <div class="form-row mt-3">
-                        <label for="staticEmail" class="col-2 col -form-label">R.U.T:</label>
+                        <label for="txtRut" class="col-2 col -form-label">R.U.T:</label>
                         <div class="col-4">
                             <asp:TextBox ID="txtRut" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
-                        <label for="staticEmail" class="col-2 col-form-label">E-mail:</label>
+                        <label for="txtEmail" class="col-2 col-form-label">E-mail:</label>
                         <div class="col-4">
                             <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-row mt-3">
-                        <label for="staticEmail" class="col-2 col-form-label">Comuna:</label>
-                        <div class="col-4">
-
-                            <asp:TextBox ID="txtComuna" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
+                       
                         <label for="staticEmail" class="col-2 col-form-label">Cond. de Pago</label>
                         <div class="col-4">
                             <asp:TextBox ID="txtPago" runat="server" CssClass="form-control"></asp:TextBox>
@@ -62,20 +58,12 @@
 
 
                     <div class="form-row mt-3">
-                        <label for="staticEmail" class="col-2 col-form-label">Ciudad:</label>
-                        <div class="col-4">
-                            <asp:TextBox ID="txtCuidad" CssClass="form-control" runat="server"></asp:TextBox>
-                        </div>
-                        <label for="staticEmail" class="col-2 col-form-label">Direccion:</label>
+                       
+                        <label for="txtDireccion" class="col-2 col-form-label">Direccion:</label>
                         <div class="col-4">
                             <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
-                        <br />
-                        <label for="staticEmail" class="col-2 col-form-label">Giro:</label>
-                        <div class="col-4">
-                            <br />
-                            <asp:TextBox ID="txtGiro" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
+                   
                     </div>
 
 
@@ -158,7 +146,8 @@
             </div>
 
             <div class="container form-footer text-right mt-3">
-                <asp:Button ID="Button1" CssClass="btn cerrarColor display-1" runat="server" Text="AGREGAR FACTURA" />
+                <asp:Button ID="Button2" CssClass="btn cerrarColor display-1" runat="server" Text="GUARDAR" />
+                <asp:Button ID="Button1" CssClass="btn cerrarColor display-1" runat="server" Text="GUARDAR Y EMITIR" />
             </div>
 
 

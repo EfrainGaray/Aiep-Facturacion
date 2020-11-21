@@ -5,8 +5,8 @@
 
      <form id="form1" runat="server">
     <div class="container-fluid mt-4 bg-white border-radius-10 ">
-        <div class="row mt-3">
-            <div class="container bg-gray p-3">
+        <div class="row ">
+            <div class="container bg-gray p-3  mt-5">
 
                 <div class="form-row">
                     <label for="txtNombrePro" class="col-2 col-form-label">Nombre</label>

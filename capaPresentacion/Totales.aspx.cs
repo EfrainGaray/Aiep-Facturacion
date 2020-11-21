@@ -12,12 +12,12 @@ namespace capaPresentacion
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        string user;
+        Usuario user;
         DocumentoBLL doc = new DocumentoBLL();
         DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.user = (string)Session["usuario"];
+            this.user = (Usuario)Session["usuario"];
             if (!IsPostBack)
             {
                 this.updateTable();

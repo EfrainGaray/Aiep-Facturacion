@@ -19,7 +19,8 @@ namespace capaPresentacion
             this.user = (Usuario)Session["usuario"];
             if (!IsPostBack) 
             {
-                this.updateTable();          
+                this.updateTable();
+                nombreUsuario.InnerHtml = user.User;
             }
         }
 
@@ -93,9 +94,19 @@ namespace capaPresentacion
 
         protected void editar_Click(object sender, EventArgs e)
         {
+
             LinkButton button = (LinkButton)sender;
             string folio = (string)button.Attributes["data-folio"];
-            Response.Redirect("detalleFactura?folio="+folio);
+            string estado = (string)button.Attributes["data-estado"];
+            if (estado.Equals("Borrador"))
+            {
+                Response.Redirect("detalleFactura?folio=" + folio);
+            }
+            else {
+                debug("Solo se pueden editar las facturas Con estado Borrador");
+            }
+           
+
         }
     }
 }

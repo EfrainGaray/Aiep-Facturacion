@@ -26,7 +26,12 @@ namespace capaPresentacion
             giro.InnerHtml = doc.Vendedor.Giro;
             folioh.InnerHtml = folio;
             fecha.InnerHtml = DateTime.Now.ToString("D", CultureInfo.CreateSpecificCulture("es-ES"));
-            
+            txtSenior.Text = doc.Comprador.RazonSocial;
+            txtRut.Text = doc.Comprador.Rut;
+            txtDireccion.Text = doc.Comprador.Direccion;
+            txtTelefono.Text = doc.Comprador.Telefono;
+            txtEmail.Text = doc.Comprador.Email;
+            txtPago.Text = doc.TipoPago.ToString();
 
             if (!IsPostBack)
             {

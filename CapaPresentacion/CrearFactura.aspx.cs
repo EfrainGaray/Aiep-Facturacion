@@ -53,8 +53,7 @@ namespace capaPresentacion
                 string rut = txtRut.Text;
                 string email = txtEmail.Text;
                 string direccion = txtDireccion.Text;
-                string ciudad  = txtCiudad.Text;
-                string comuna = txtComuna.Text;
+                
                 string conPago = txtCondPago.Text;
                 string rSocial = txtNombre.Text;
 

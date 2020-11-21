@@ -13,12 +13,12 @@ namespace capaPresentacion
 {
     public partial class PorFecha : System.Web.UI.Page
     {
-        string user;
+        Usuario user;
         DocumentoBLL doc = new DocumentoBLL();
         DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.user = (string)Session["usuario"];
+            this.user = (Usuario)Session["usuario"];
             if (!IsPostBack)
             {
                 this.updateTable();
@@ -51,7 +51,7 @@ namespace capaPresentacion
             this.dt.Columns.Add(new DataColumn("Total", typeof(int)));
             this.dt.Columns.Add(new DataColumn("IVA", typeof(int)));
             this.dt.Columns.Add(new DataColumn("Estado", typeof(string)));
-            this.dt.Columns.Add(new DataColumn("Herramientas", typeof(string)));
+            this.dt.Columns.Add(new DataColumn("CreadaPor", typeof(string)));
             if (Utils.CheckString(txtFInicial.Text))
             {
                 txtFInicial.Text = "01/01/2020";
@@ -80,7 +80,7 @@ namespace capaPresentacion
                 {
                     estado = "Anulada";
                 }
-                this.dt.Rows.Add(doc.Folio, doc.Vendedor.Rut, doc.Vendedor.RazonSocial, doc.Comprador.Rut, doc.Comprador.RazonSocial, doc.Total, doc.Iva, estado);
+                this.dt.Rows.Add(doc.Folio, doc.Vendedor.Rut, doc.Vendedor.RazonSocial, doc.Comprador.Rut, doc.Comprador.RazonSocial, doc.Total, doc.Iva, estado,doc.CreadoPor);
             }
             gvDocumentosFecha.DataSource = this.dt;
             gvDocumentosFecha.DataBind();

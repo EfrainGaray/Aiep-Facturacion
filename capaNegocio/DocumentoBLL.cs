@@ -10,16 +10,13 @@ namespace capaNegocio
 {
     public class DocumentoBLL
     {
-        public static int cantidadFacturas=0;
+        public static int cantidadFacturas = 0;
         public static int cantidadFacturasTotal = 0;
         public List<Documento> GetDocumentosUsers(string user)
         {
-            
             daoDocumento daoDoc = new daoDocumento();
-            List<Documento> docs =  daoDoc.consultarDocumentoxUsuario(user);
-            
+            List<Documento> docs = daoDoc.consultarDocumentoxUsuario(user);
             return docs;
-
         }
 
         public List<Documento> GetDocumentos()
@@ -46,7 +43,7 @@ namespace capaNegocio
         {
 
             daoDocumento daoDoc = new daoDocumento();
-            List<Documento> docs = daoDoc.consultarDocumentoxFecha(fInicial,fFinal);
+            List<Documento> docs = daoDoc.consultarDocumentoxFecha(fInicial, fFinal);
 
             return docs;
 
@@ -58,22 +55,23 @@ namespace capaNegocio
             return daoDoc.anularDocumento(folio); ;
         }
 
-        public  bool CrearDcoumento(Documento documento)
+        public bool CrearDcoumento(Documento documento)
         {
             daoDocumento dao = new daoDocumento();
 
             if (dao.registrarDocumento(documento))
             {
                 cantidadFacturas++;
-                cantidadFacturasTotal++; 
+                cantidadFacturasTotal++;
                 return true;
             }
-            else {
+            else
+            {
                 return false;
             }
-           
+
         }
-    }   
+    }
 
 
 }

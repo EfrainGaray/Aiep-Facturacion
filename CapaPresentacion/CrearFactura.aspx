@@ -51,10 +51,6 @@
                 </div>
 
                   <div class="form-row mt-3">
-                    <label for="txtGiro" class="col-2 col-form-label">Giro</label>
-                    <div class="col-4">
-                       <asp:TextBox ID="txtGiro" CssClass="form-control" runat="server"></asp:TextBox>
-                    </div>
                      <label for="txtCondPago" class="col-2 col-form-label">Cond. de Pago</label>
                     <div class="col-4">
                        <asp:TextBox ID="txtCondPago" CssClass="form-control" runat="server"></asp:TextBox>
@@ -67,19 +63,10 @@
                     <div class="col-4">
                       <asp:TextBox ID="txtDireccion" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
-                     <label for="txtCiudad" class="col-2 col-form-label">Ciudad</label>
-                    <div class="col-4">
-                        <asp:TextBox ID="txtCiudad" CssClass="form-control" runat="server"></asp:TextBox>
-                    </div>
+                     
                 </div>
 
-                  <div class="form-row mt-3">
-                    <label for="txtComuna" class="col-2 col-form-label">Comuna</label>
-                    <div class="col-4">
-                        <asp:TextBox ID="txtComuna" CssClass="form-control" runat="server"></asp:TextBox>
-                    </div>
-                   
-                </div>
+                
 
 
 
