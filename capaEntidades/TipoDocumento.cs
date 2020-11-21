@@ -24,6 +24,6 @@ namespace CapaEntidades
         }
 
         public string Nombre { get => nombre; set => nombre = value; }
-        public int IdDetalle { get => idTDocumento; set => idTDocumento = value; }
+        public int IdTDocumento { get => idTDocumento; set => idTDocumento = value; }
     }
 }
