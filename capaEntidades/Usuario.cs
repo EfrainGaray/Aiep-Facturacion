@@ -7,6 +7,7 @@ namespace CapaEntidades
         private string user;
         private string password;
         private int cantidadFacturas;
+        private int idEmpresa;
 
         public Usuario() {
         }
@@ -20,5 +21,6 @@ namespace CapaEntidades
         public string User { get => user; set => user = value; }
         public string Password { get => password; set => password = value; }
         public int CantidadFacturas { get => cantidadFacturas; set => cantidadFacturas = value; }
+        public int IdEmpresa { get => idEmpresa; set => idEmpresa = value; }
     }
 }
