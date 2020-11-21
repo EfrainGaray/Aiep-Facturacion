@@ -32,6 +32,16 @@ namespace capaNegocio
 
         }
 
+        public List<Documento> GetDocumentosxFolio(string folio)
+        {
+
+            daoDocumento daoDoc = new daoDocumento();
+            List<Documento> docs = daoDoc.consultarDocumentoxFolio(folio);
+
+            return docs;
+
+        }
+
         public List<Documento> GetDocumentosFecha(DateTime fInicial, DateTime fFinal)
         {
 
