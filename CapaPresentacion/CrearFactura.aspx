@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BackOffice.Master" AutoEventWireup="true" CodeBehind="CrearFactura.aspx.cs" Inherits="capaPresentacion.CrearFactura" %>
+﻿
+<%@ Page Title="" Language="C#" MasterPageFile="~/BackOffice.Master" AutoEventWireup="true" CodeBehind="CrearFactura.aspx.cs" Inherits="capaPresentacion.CrearFactura" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -18,6 +19,12 @@
                     <p class="font-weight-bold">FACTURA ELECTRONICA</p>
                     <p>N° :<span runat="server" id="txtFolio"> </span></p>
                 </div>
+                <div class="text-center">
+                    <p>S.I.I Santiago</p>
+                    <p>Santiago,10 Noviembre 2020</p>
+
+                </div>
+
             </div>
             <div class="container bg-gray p-3">
 
@@ -73,8 +80,8 @@
                     </div>
                    
                 </div>
-                
-               
+
+
 
             </div>
              <div class="container form-footer text-right mt-3 mb-3">

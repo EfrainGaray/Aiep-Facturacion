@@ -15,10 +15,11 @@ namespace Aiep_Facturacion
         protected void Page_Init(object sender, EventArgs e)
         {
             this.user= (string)(Session["usuario"]);
-            if (user==null)
+          /*  if (user==null)
             {
                 Response.Redirect("./login",true);
             }
+          */
            
         }
         protected void Page_Load(object sender, EventArgs e)

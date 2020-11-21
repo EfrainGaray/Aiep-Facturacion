@@ -21,7 +21,37 @@ namespace capaNegocio
             return docs;
 
         }
-        
+
+        public List<Documento> GetDocumentos()
+        {
+
+            daoDocumento daoDoc = new daoDocumento();
+            List<Documento> docs = daoDoc.consultarDocumento();
+
+            return docs;
+
+        }
+
+        public List<Documento> GetDocumentosxFolio(string folio)
+        {
+
+            daoDocumento daoDoc = new daoDocumento();
+            List<Documento> docs = daoDoc.consultarDocumentoxFolio(folio);
+
+            return docs;
+
+        }
+
+        public List<Documento> GetDocumentosFecha(DateTime fInicial, DateTime fFinal)
+        {
+
+            daoDocumento daoDoc = new daoDocumento();
+            List<Documento> docs = daoDoc.consultarDocumentoxFecha(fInicial,fFinal);
+
+            return docs;
+
+        }
+
         public bool AnularDcoumento(string folio)
         {
             daoDocumento daoDoc = new daoDocumento();

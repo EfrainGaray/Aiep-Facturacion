@@ -96,7 +96,7 @@
     font-size: 22px;
 } 
 .bg-gray {
-    background: #707070;
+    background: #707070 !important;
     border-radius: 10px;
 }
 .factura-folio {
@@ -113,4 +113,8 @@
     visibility: hidden;
     opacity: 0;
     transition: opacity 1s, visibility 1s;
+}
+.bg-green {
+    background: #78F3D2;
+
 }

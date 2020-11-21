@@ -228,7 +228,7 @@ namespace capaPersintencia
             }
             
         }
-        public List<Documento> consultarDocumentoxUsuario( string user)
+        public List<Documento> consultarDocumentoxUsuario(string user)
         {
 
             try
@@ -238,6 +238,59 @@ namespace capaPersintencia
                 string sql = "SELECT * FROM documento where creadoPor=@creadoPor";
                 SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
                 sqlData.SelectCommand.Parameters.Add("@creadoPor", SqlDbType.VarChar, 10).Value = user;
+
+
+                DataTable dataTable = new DataTable();
+
+
+                sqlData.Fill(dataTable);
+                conexion.cerrarConexion();
+                List<Documento> documentos = new List<Documento>();
+                if (dataTable.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+                        Documento documentoAux = new Documento();
+                        daoEmpresa empresaAux = new daoEmpresa();
+                        daoCliente clienteAux = new daoCliente();
+
+                        documentoAux.Folio = dataTable.Rows[i]["folio"].ToString();
+                        documentoAux.EstadoEmitido = int.Parse(dataTable.Rows[i]["estado"].ToString());
+                        documentoAux.SubTotal = int.Parse(dataTable.Rows[i]["subtotal"].ToString());
+                        documentoAux.Iva = int.Parse(dataTable.Rows[i]["iva"].ToString());
+                        documentoAux.Total = int.Parse(dataTable.Rows[i]["total"].ToString());
+                        documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
+                        documentoAux.Observacion = dataTable.Rows[i]["observacion"].ToString();
+                        documentoAux.CreadoPor = dataTable.Rows[i]["creadoPor"].ToString();
+                        documentoAux.FechaEmision = DateTime.Parse(dataTable.Rows[i]["fechaEmision"].ToString());
+                        //Devuelvo también el vendedor y comprador para agregarlo al detalle de la consulta
+                        documentoAux.Vendedor = empresaAux.detalleEmpresaId(int.Parse(dataTable.Rows[i]["empresa_id"].ToString()));
+                        documentoAux.Comprador = clienteAux.detalleClienteId(int.Parse(dataTable.Rows[i]["cliente_id"].ToString()));
+
+                        //Se agrega a la lista
+                        documentos.Add(documentoAux);
+                    }
+                }
+                return documentos;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        public List<Documento> consultarDocumentoxFolio(string folio)
+        {
+
+            try
+            {
+                ConexionBD conexion = new ConexionBD();
+                conexion.abrirConexion();
+                string sql = "SELECT * FROM documento where folio=@folio";
+                SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+                sqlData.SelectCommand.Parameters.Add("@folio", SqlDbType.VarChar, 10).Value = folio;
 
 
                 DataTable dataTable = new DataTable();
