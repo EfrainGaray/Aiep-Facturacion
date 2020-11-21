@@ -57,6 +57,13 @@ namespace capaPresentacion
                 string conPago = txtCondPago.Text;
                 string rSocial = txtNombre.Text;
 
+
+                //Ordenación de RUT
+                rut.Replace(".", string.Empty);
+                rut.Replace("-", string.Empty);
+                rut.Trim();
+
+
                 Cliente cli = new Cliente(rSocial, rut, direccion, telefono, email);
                 DocumentoBLL documentBLL = new DocumentoBLL();
                 Documento documento = new Documento(folio,0,cli,empresa,new TipoDocumento("Factura Electronica",1),user.User);
