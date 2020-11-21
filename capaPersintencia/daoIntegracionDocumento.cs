@@ -33,7 +33,7 @@ namespace capaPersintencia
                     {
                         TipoDocumento tDocumentoAux = new TipoDocumento();
                         tDocumentoAux.Nombre = dataTable.Rows[i]["nombre"].ToString();
-                        tDocumentoAux.IdDetalle = int.Parse(dataTable.Rows[i]["id"].ToString());
+                        tDocumentoAux.IdTDocumento = int.Parse(dataTable.Rows[i]["id"].ToString());
 
 
                         tipoDocumentos.Add(tDocumentoAux);
