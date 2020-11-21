@@ -11,11 +11,15 @@ namespace capaPresentacion
     public partial class CrearFactura : System.Web.UI.Page
     {
         public string folio;
+        Usuario user;
+        Empresa empresa;
         protected void Page_Load(object sender, EventArgs e)
         {
+            user = (Usuario)(Session["usuario"]);
             Random r = new Random();
             folio = r.Next().ToString();
             txtFolio.InnerText = folio;
+          
         }
 
         protected void Button1_Click(object sender, EventArgs e)

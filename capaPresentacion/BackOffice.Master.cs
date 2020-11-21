@@ -11,10 +11,10 @@ namespace Aiep_Facturacion
 {
     public partial class BackOffice : System.Web.UI.MasterPage
     {
-        string user;
+        Usuario user;
         protected void Page_Init(object sender, EventArgs e)
         {
-            this.user= (string)(Session["usuario"]);
+            user= (Usuario)(Session["usuario"]);
             if (user==null)
             {
                 Response.Redirect("./login",true);
