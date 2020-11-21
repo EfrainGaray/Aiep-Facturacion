@@ -37,6 +37,7 @@ namespace capaPersintencia
                         Usuario usuario = new Usuario();
                         usuario.User = dataTable.Rows[i]["usuario"].ToString();
                         usuario.Password = dataTable.Rows[i]["password"].ToString();
+                        usuario.IdEmpresa = int.Parse(dataTable.Rows[i]["id_empresa"].ToString());
                         usuarios.Add(usuario);
                     }
                 }
