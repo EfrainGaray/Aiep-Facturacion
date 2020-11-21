@@ -69,6 +69,12 @@
                     <div class="col-4">
                         <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
+                    <br />
+                    <label for="staticEmail" class="col-2 col-form-label">Giro:</label>
+                    <div class="col-4">
+                        <br />
+                        <asp:TextBox ID="txtGiro" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
                 </div>
 
 
