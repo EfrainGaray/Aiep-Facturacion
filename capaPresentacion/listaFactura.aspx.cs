@@ -42,7 +42,7 @@ namespace capaPresentacion
                     debug("La Factura ya se encuentra en estado Borrados, no es posible anular.");
                 }
                 else if(this.doc.AnularDcoumento(folio))
-                {
+                { 
                     debug("Factura Anulada con exito");
                     this.updateTable();
                 }
