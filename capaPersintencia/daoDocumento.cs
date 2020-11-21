@@ -322,7 +322,7 @@ namespace capaPersintencia
                         documentoAux.TipoPago = int.Parse(dataTable.Rows[i]["tipoPago"].ToString());
                         documentoAux.Observacion = dataTable.Rows[i]["observacion"].ToString();
                         documentoAux.CreadoPor = dataTable.Rows[i]["creadoPor"].ToString();
-                        documentoAux.FechaEmision = Convert.ToDateTime(dataTable.Rows[i]["fechaEmision"].ToString());
+                        //documentoAux.FechaEmision = Convert.ToDateTime(dataTable.Rows[i]["fechaEmision"].ToString());
                         //Devuelvo también el vendedor y comprador para agregarlo al detalle de la consulta
                         documentoAux.Vendedor = empresaAux.detalleEmpresaId(int.Parse(dataTable.Rows[i]["empresa_id"].ToString()));
                         documentoAux.Comprador = clienteAux.detalleClienteId(int.Parse(dataTable.Rows[i]["cliente_id"].ToString()));

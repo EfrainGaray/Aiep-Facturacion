@@ -21,7 +21,7 @@ namespace capaPersintencia
                 conexion.abrirConexion();
 
                 string sqlQuery = "INSERT INTO producto (empresa_id, nombre, codigo, stock, descipcion, precio) " +
-                             "values('1', @nombre, @codigo , @stock , @descipcion, @precio)";
+                             "values(@empresa_id, @nombre, @codigo , @stock , @descipcion, @precio)";
 
                 SqlCommand commandSql = new SqlCommand(sqlQuery,conexion.Conexion);
 
@@ -40,6 +40,9 @@ namespace capaPersintencia
 
                 commandSql.Parameters.AddWithValue("@precio", SqlDbType.Int);
                 commandSql.Parameters["@precio"].Value = nuevoProducto.Precio;
+
+                commandSql.Parameters.AddWithValue("@empresa_id", SqlDbType.Int);
+                commandSql.Parameters["@empresa_id"].Value = 2;
 
                 //Ejecución de query
                 int filasAfectadas= commandSql.ExecuteNonQuery();
@@ -139,6 +142,40 @@ namespace capaPersintencia
                 }
                 return productos;
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        public bool productoExistente(string codigo) {
+            try
+            {
+                ConexionBD conexion = new ConexionBD();
+                conexion.abrirConexion();
+                string sql = "SELECT * FROM producto where codigo= @codigo";
+                SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+
+                sqlData.SelectCommand.Parameters.AddWithValue("@codigo", SqlDbType.VarChar);
+                sqlData.SelectCommand.Parameters["@codigo"].Value = codigo;
+
+
+                DataTable dataTable = new DataTable();
+
+
+                sqlData.Fill(dataTable);
+                conexion.cerrarConexion();
+                if (dataTable.Rows.Count > 0)
+                {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+  
+            }             
             catch (Exception)
             {
 

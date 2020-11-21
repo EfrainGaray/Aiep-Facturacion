@@ -116,6 +116,7 @@
     <Content Include="Content\main.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CrearFactura.aspx" />
+    <Content Include="CrearProducto.aspx" />
     <Content Include="detalleFactura.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Imagen\bg-login.jpg" />
@@ -286,6 +287,13 @@
     </Compile>
     <Compile Include="CrearFactura.aspx.designer.cs">
       <DependentUpon>CrearFactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearProducto.aspx.cs">
+      <DependentUpon>CrearProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearProducto.aspx.designer.cs">
+      <DependentUpon>CrearProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="detalleFactura.aspx.cs">
       <DependentUpon>detalleFactura.aspx</DependentUpon>
