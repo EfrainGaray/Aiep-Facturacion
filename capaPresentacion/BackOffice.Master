@@ -41,8 +41,8 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                    <a class="dropdown-item" href="listaFactura.aspx">ver</a>
-                                    <a class="dropdown-item" href="CrearFactura.aspx">crear</a>
+                                    <a class="dropdown-item" href="listaFactura.aspx">Ver Facturas</a>
+                                    <a class="dropdown-item" href="CrearFactura.aspx">Crear Nueva Factura</a>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
 
 
                                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                    <a class="dropdown-item" href="#">creae</a>
+                                    <a class="dropdown-item" href="#">Crear</a>
                                 </div>
                             </div>
                         </div>
