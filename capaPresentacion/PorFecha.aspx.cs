@@ -52,11 +52,21 @@ namespace capaPresentacion
             this.dt.Columns.Add(new DataColumn("IVA", typeof(int)));
             this.dt.Columns.Add(new DataColumn("Estado", typeof(string)));
             this.dt.Columns.Add(new DataColumn("Herramientas", typeof(string)));
+            if (Utils.CheckString(txtFInicial.Text))
+            {
+                txtFInicial.Text = "01/01/2020";
+            }
+            DateTime fFinal = DateTime.Now;
+            if (!Utils.CheckString(txtFFinal.Text))
+            {
+                 fFinal = Convert.ToDateTime(txtFFinal.Text);
+            }
+            txtFFinal.Text = fFinal.ToString("d", CultureInfo.CreateSpecificCulture("es-ES"));
 
-            
-            DateTime fInicial= DateTime.ParseExact(txtFInicial.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None);
-            DateTime fFinal = DateTime.ParseExact(txtFFinal.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None);
-            
+
+            DateTime fInicial = Convert.ToDateTime(txtFInicial.Text);
+           
+
             DocumentoBLL docBLL = new DocumentoBLL();
             List<Documento> docs = docBLL.GetDocumentosFecha(fInicial,fFinal );
             foreach (var doc in docs)
