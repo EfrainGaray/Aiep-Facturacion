@@ -60,12 +60,16 @@ namespace capaPresentacion
 
                 Cliente cli = new Cliente(giro, rut, direccion, telefono, email);
                 DocumentoBLL documentBLL = new DocumentoBLL();
-                Documento documento = new Documento(folio, 0, cli, empresa, 1, user.User);
+                Documento documento = new Documento(folio,0,cli,empresa,new TipoDocumento("Factura Electronica",1),user.User);
 
                 if (documentBLL.CrearDcoumento(documento))
                 {
                     Application["facturaUser" + Session.SessionID] = (int)Application["facturaUser" + Session.SessionID] + 1;
                     Application["facturasTotalUsuario"] = (int)Application["facturasTotalUsuario"] + 1;
+                    Response.Redirect("detalleFactura?folio="+documento.Folio);
+                }
+                else {
+                    debug("No se logro crear un documento");
                 }
             }
             
