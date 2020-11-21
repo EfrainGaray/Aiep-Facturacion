@@ -38,7 +38,6 @@
                    
                 </div>
 
-
             </div>
              <div class="container form-footer text-right mt-3 mb-3">
                  <asp:Button ID="enviarProducto" runat="server" CssClass="btn btn-info display-1 cerrarColor" OnClick="enviarProducto_Click" Text="Guardar" />
