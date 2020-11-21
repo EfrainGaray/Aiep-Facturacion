@@ -11,7 +11,7 @@ namespace capaPersintencia
 {
     public class daoDocumento
     {
-        public bool registrarDocumento(Documento nuevoDocumento, Cliente comprador) {
+        public bool registrarDocumento(Documento nuevoDocumento) {
 
             try
             {
@@ -20,7 +20,7 @@ namespace capaPersintencia
                 conexion.abrirConexion();
 
                 string sqlQueryDocumento = "INSERT INTO documento (folio, estado, subtotal, iva, total, tipoPago, cliente_id, empresa_id, tipoDocumento_id, fechaEmision, observacion, creadoPor) " +
-                             "values(@folio, @estado, @subtotal, @iva, @total, @tipoPago, @cliente_id, '1', @tipoDocumento_id, @fechaEmision, @observacion, @creadoPor)";
+                             "values(@folio, @estado, @subtotal, @iva, @total, @tipoPago, @cliente_id, @empresa_id, @tipoDocumento_id, @fechaEmision, @observacion, @creadoPor)";
 
                 SqlCommand commandSql = new SqlCommand(sqlQueryDocumento, conexion.Conexion);
 
@@ -54,7 +54,7 @@ namespace capaPersintencia
 
                 //ID de relacionados al documento
                 commandSql.Parameters.AddWithValue("@cliente_id", SqlDbType.Int);
-                commandSql.Parameters["@cliente_id"].Value = comprador.IdCliente;
+                commandSql.Parameters["@cliente_id"].Value = nuevoDocumento.Comprador.IdCliente;
 
               
                 //Ejecución de query
