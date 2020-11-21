@@ -65,12 +65,13 @@ namespace capaNegocio
             if (dao.registrarDocumento(documento))
             {
                 cantidadFacturas++;
-                cantidadFacturasTotal++;
+                cantidadFacturasTotal++; 
+                return true;
             }
             else {
                 return false;
             }
-           return true;
+           
         }
     }   
 
