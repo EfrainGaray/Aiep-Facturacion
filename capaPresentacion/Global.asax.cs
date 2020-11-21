@@ -14,8 +14,7 @@ namespace capaPresentacion
 {
     public class Global : HttpApplication
     {
-        private static string sessionID;   
-        
+     
         void Application_Start(object sender, EventArgs e)
         {
             // Código que se ejecuta al iniciar la aplicación

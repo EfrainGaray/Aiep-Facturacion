@@ -21,7 +21,7 @@
             <hr class="mb-5" />
         </div>
         <div class="alert alert-danger form-text font-weight-light opacity-0" role="alert" runat="server" id="error">
-            A simple danger alert—check it out!
+           
         </div>
 
     </div>

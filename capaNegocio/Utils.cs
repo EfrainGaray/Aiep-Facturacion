@@ -9,13 +9,13 @@ namespace capaNegocio
 {
     public static class Utils
     {
+        public static Object formulario ;
         public static bool CheckString(string txt)
         {
-            bool valid = true;
-            valid = valid && string.IsNullOrEmpty( txt.Trim() );
-            return valid;
+
+            return string.IsNullOrEmpty(txt.Trim());
         }
 
-        public static T GetSession<T>(string key) => HttpContext.Current?.Session?[key] != null ? (T)HttpContext.Current.Session[key] : default(T);
+       
     }
 }
