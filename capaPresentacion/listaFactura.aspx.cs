@@ -90,5 +90,12 @@ namespace capaPresentacion
         {
 
         }
+
+        protected void editar_Click(object sender, EventArgs e)
+        {
+            LinkButton button = (LinkButton)sender;
+            string folio = (string)button.Attributes["data-folio"];
+            Response.Redirect("detalleFactura?folio="+folio);
+        }
     }
 }
