@@ -87,6 +87,56 @@ namespace capaPersintencia
 
         }
 
+        public bool editarCliente(Cliente nuevoCliente)
+        {
+            daoCliente aux = new daoCliente();
+
+            if (!aux.clienteExiste(nuevoCliente.Rut))
+            {
+                aux.registrarCliente(nuevoCliente);
+            }
+            try
+            {
+                ConexionBD conexion = new ConexionBD();
+
+                conexion.abrirConexion();
+
+                string sqlQueryDocumento = "UPDATE documento SET cliente_id = @cliente_id where rut=@rut";
+
+                SqlCommand commandSql = new SqlCommand(sqlQueryDocumento, conexion.Conexion);
+
+
+                //ID de relacionados al documento
+                commandSql.Parameters.AddWithValue("@cliente_id", SqlDbType.VarChar);
+                commandSql.Parameters["@cliente_id"].Value = aux.getIdCliente(nuevoCliente.Rut);
+
+                commandSql.Parameters.AddWithValue("@rut", SqlDbType.VarChar);
+                commandSql.Parameters["@rut"].Value = aux.getIdCliente(nuevoCliente.Rut);
+
+
+
+                //Ejecución de query
+                int filasAfectadas = commandSql.ExecuteNonQuery();
+
+                conexion.cerrarConexion();
+
+                if (filasAfectadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
         public bool modificarDocumento(Documento documentoModificar)
         {
             try
