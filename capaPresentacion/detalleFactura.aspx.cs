@@ -131,11 +131,30 @@ namespace capaPresentacion
                         int IdProd = productoBLL.getId(codigo);
                         int IdDoc = documentoBLL.getId(folio);
                         DetalleDocumento detalleDocumento = new DetalleDocumento(int.Parse(tb.Text), producto.Precio, 0,IdDoc,IdProd,0);
+                       
                         detalleDoc.Add(detalleDocumento);
                     }
                    
                 }
             }
+            int neto = 0;
+            foreach (DetalleDocumento doc in detalleDoc)
+            {
+                neto += doc.PrecioProducto;
+            }
+            txtNeto.Text = neto.ToString();
+            txtIva.Text = (neto*0.19).ToString();
+            txtTotal.Text = (neto + (neto * 0.19)).ToString();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
