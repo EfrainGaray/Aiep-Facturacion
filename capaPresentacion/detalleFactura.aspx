@@ -170,8 +170,8 @@
             </div>
 
             <div class="container form-footer text-right mt-3">
-                <asp:Button ID="Button2" CssClass="btn cerrarColor display-1" runat="server" Text="GUARDAR" />
-                <asp:Button ID="Button1" CssClass="btn cerrarColor display-1" runat="server" Text="GUARDAR Y EMITIR" />
+                <asp:Button ID="Button2" CssClass="btn cerrarColor display-1" runat="server" Text="GUARDAR" OnClick="Button2_Click" />
+                <asp:Button ID="Button1" CssClass="btn cerrarColor display-1" runat="server" Text="GUARDAR Y EMITIR" OnClick="Button1_Click" />
             </div>
 
 
