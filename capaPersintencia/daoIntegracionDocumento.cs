@@ -87,7 +87,7 @@ namespace capaPersintencia
         }
 
         //Ingresar y obtener detalle del documento
-        public int ingresarDetalle(List<DetalleDocumento> detalle)
+        public bool ingresarDetalle(List<DetalleDocumento> detalle)
         {
 
             try
@@ -130,7 +130,14 @@ namespace capaPersintencia
 
 
                 conexion.cerrarConexion();
-                return cantidadRegistros;
+                if (cantidadRegistros > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
 
             }
             catch (Exception)
