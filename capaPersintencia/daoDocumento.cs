@@ -233,6 +233,44 @@ namespace capaPersintencia
             }
             
         }
+
+        public bool emitirDocumento(string folio)
+        {
+            try
+            {
+                ConexionBD conexion = new ConexionBD();
+
+                conexion.abrirConexion();
+
+                string sqlQueryDocumento = "UPDATE documento set estado = 1 where folio =@folio";
+
+                SqlCommand commandSql = new SqlCommand(sqlQueryDocumento, conexion.Conexion);
+
+
+                commandSql.Parameters.AddWithValue("@folio", SqlDbType.VarChar);
+                commandSql.Parameters["@folio"].Value = folio;
+
+                //Ejecución de query
+                int filasAfectadas = commandSql.ExecuteNonQuery();
+
+                conexion.cerrarConexion();
+
+                if (filasAfectadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
         public List<Documento> consultarDocumento()
         {
 
