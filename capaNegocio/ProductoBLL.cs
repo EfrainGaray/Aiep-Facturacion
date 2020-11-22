@@ -27,5 +27,21 @@ namespace capaNegocio
             }
 
         }
+        public List<Producto> GetProductos(string search)
+        {
+            List<Producto> productos = new List<Producto>();
+
+            daoProducto daoProducto = new daoProducto();
+
+            productos = daoProducto.detalleProdutoxNombre(search);
+            productos.AddRange(daoProducto.detalleProdutoxCodigo(search));
+
+            return productos;
+        }
+        public int getId(string folio)
+        {
+            daoDocumento daoDoc = new daoDocumento();
+            return daoDoc.getIdDocumento(folio);
+        }
     }
 }

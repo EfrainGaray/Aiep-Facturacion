@@ -18,11 +18,14 @@ namespace CapaEntidades
 
         }
 
-        public DetalleDocumento(int cantidadProducto, int precioProducto, int estado)
+        public DetalleDocumento(int cantidadProducto, int precioProducto, int estado, int idDDocumento, int idProducto, int idDocumento)
         {
             this.cantidadProducto = cantidadProducto;
             this.precioProducto = precioProducto;
             this.estado = estado;
+            this.idDDocumento = idDDocumento;
+            this.idProducto = idProducto;
+            this.idDocumento = idDocumento;
         }
 
         public int CantidadProducto { get => cantidadProducto; set => cantidadProducto = value; }

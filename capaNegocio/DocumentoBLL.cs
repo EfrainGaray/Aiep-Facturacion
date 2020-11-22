@@ -49,11 +49,20 @@ namespace capaNegocio
             return docs;
 
         }
+        public bool ingresarDetalle(List<DetalleDocumento> dd) {
+            daoIntegracionDocumento daoDoc = new daoIntegracionDocumento();
+            return daoDoc.ingresarDetalle(dd);
+        }
 
         public bool AnularDcoumento(string folio)
         {
             daoDocumento daoDoc = new daoDocumento();
             return daoDoc.anularDocumento(folio); ;
+        }
+        public int getId(string folio)
+        {
+            daoDocumento daoDoc = new daoDocumento();
+            return daoDoc.getIdDocumento(folio);
         }
 
         public bool CrearDcoumento(Documento documento)
