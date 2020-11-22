@@ -13,6 +13,7 @@ namespace capaNegocio
     {
         public static int cantidadFacturas = 0;
         public static int cantidadFacturasTotal = 0;
+   
         public List<Documento> GetDocumentosUsers(string user)
         {
             daoDocumento daoDoc = new daoDocumento();
@@ -64,6 +65,11 @@ namespace capaNegocio
             daoDocumento daoDoc = new daoDocumento();
             return daoDoc.getIdDocumento(folio);
         }
+        public bool emitir(string folio)
+        {
+            daoDocumento daoDoc = new daoDocumento();
+            return daoDoc.emitirDocumento(folio);
+        }
 
         public bool CrearDcoumento(Documento documento)
         {
@@ -81,6 +87,7 @@ namespace capaNegocio
             }
 
         }
+        
     }
 
 

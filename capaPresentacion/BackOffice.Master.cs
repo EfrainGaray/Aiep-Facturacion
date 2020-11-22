@@ -26,6 +26,8 @@ namespace Aiep_Facturacion
         {
             factura1.InnerHtml = Application["facturaUser" + Session.SessionID].ToString();
             factura2.InnerHtml = Application["facturasTotalUsuario"].ToString();
+            factura3.InnerHtml = Application["totalNetoUsuario" + Session.SessionID].ToString();
+            factura4.InnerHtml = Application["totalNetoTotalUsurio"].ToString();
             if (Request.QueryString["logout"] != null) {
                 Session.RemoveAll();
                 Response.Redirect("./index");

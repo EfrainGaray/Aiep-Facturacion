@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="detalle" runat="server">
     <div class="col-8 text-white font-weight-bold">
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label for="exampleInputEmail1">Usuario</label>
           
             <asp:TextBox ID="txtUsuario" CssClass="form-control" runat="server"></asp:TextBox>
          

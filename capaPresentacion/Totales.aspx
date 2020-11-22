@@ -48,12 +48,7 @@
                         <asp:Label ID="lbEstado" runat="server" Text='<% #Bind("Estado") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-             <asp:TemplateField HeaderText="Creada Por">
-                     <ItemTemplate>
-                        <asp:Label ID="lbCreadaPor" runat="server" Text='<% #Bind("CreadaPor") %>'></asp:Label>
-                    </ItemTemplate>
-
-                </asp:TemplateField>
+            
             </Columns>
         </asp:GridView>
     </form>

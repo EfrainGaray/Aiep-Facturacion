@@ -149,12 +149,24 @@ namespace capaPresentacion
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-
+            documentoBLL.ingresarDetalle(detalleDoc);
+            debug("Documento Guardado");
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
+            documentoBLL.ingresarDetalle(detalleDoc);
+            if (documentoBLL.emitir(folio))
+            {
+                debug("Documento Guardado");
+                Application["totalNetoUsuario" + Session.SessionID] = int.Parse(txtNeto.Text);
+                Application["totalNetoTotalUsurio"] =  (int)Application["totalNetoTotalUsurio"] + int.Parse(txtNeto.Text);
+            }
+            else
+            {
+                debug("no se pudo Guardar el documento");
+            }
+            
         }
     }
 }
