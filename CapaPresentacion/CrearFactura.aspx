@@ -72,6 +72,7 @@
 
             </div>
              <div class="container form-footer text-right mt-3 mb-3">
+                
                  <asp:Button ID="enviarFactura1" runat="server" CssClass="btn btn-info display-1 cerrarColor" OnClick="Button1_Click" Text="Siguiente" />
                 </div>
         </div>

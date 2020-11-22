@@ -58,10 +58,20 @@ namespace capaPresentacion
                 string rSocial = txtNombre.Text;
 
 
-                //Ordenación de RUT
+                //limpieza de RUT
                 rut.Replace(".", string.Empty);
                 rut.Replace("-", string.Empty);
                 rut.Trim();
+
+                string dv;
+                string rutValidar;
+
+                rutValidar = rut.Substring(0, rut.Length - 1);
+                dv = rut.Substring(rut.Length-1, 1);
+
+                if (!Utils.ValidaRut(rutValidar, dv)) {
+                    Response.Write("<script>alert('El RUT ingresado no tiene un formato válido.')</script>");
+                }
 
 
                 Cliente cli = new Cliente(rSocial, rut, direccion, telefono, email);

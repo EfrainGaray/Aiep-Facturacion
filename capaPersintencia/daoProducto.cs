@@ -118,8 +118,8 @@ namespace capaPersintencia
                 /*
                 sqlData.SelectCommand.Parameters.AddWithValue("@nombre", SqlDbType.VarChar);
                 sqlData.SelectCommand.Parameters["@nombre"].Value = nombre;
-  
-                */
+
+
                 DataTable dataTable = new DataTable();
 
 
@@ -141,6 +141,42 @@ namespace capaPersintencia
                     }
                 }
                 return productos;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        public int getIdProducto(string codigo)
+        {
+            try
+            {
+                ConexionBD conexion = new ConexionBD();
+                conexion.abrirConexion();
+                string sql = "SELECT * FROM producto where codig= @codigo";
+                SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+
+                sqlData.SelectCommand.Parameters.AddWithValue("@codigo", SqlDbType.VarChar);
+                sqlData.SelectCommand.Parameters["@codigo"].Value = codigo;
+  
+
+                DataTable dataTable = new DataTable();
+
+                int id = 0;
+
+                sqlData.Fill(dataTable);
+                conexion.cerrarConexion();
+                if (dataTable.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+                        id = int.Parse(dataTable.Rows[i]["id"].ToString());
+                    }
+                }
+                return id;
             }
             catch (Exception)
             {

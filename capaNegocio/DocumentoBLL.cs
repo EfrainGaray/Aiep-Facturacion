@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +42,7 @@ namespace capaNegocio
 
         public List<Documento> GetDocumentosFecha(DateTime fInicial, DateTime fFinal)
         {
-
+            
             daoDocumento daoDoc = new daoDocumento();
             List<Documento> docs = daoDoc.consultarDocumentoxFecha(fInicial, fFinal);
 
