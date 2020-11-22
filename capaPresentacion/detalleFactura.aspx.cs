@@ -13,14 +13,17 @@ namespace capaPresentacion
 {
     public partial class detalleFactura : System.Web.UI.Page
     {
+        public DataTable dt = new DataTable();
+        public List<Producto> prods;
+        public ProductoBLL productoBLL = new ProductoBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
             string folio = Request.QueryString["folio"];
 
             DocumentoBLL documentoBLL = new DocumentoBLL();
-            
-            Documento doc = documentoBLL.GetDocumentosxFolio(folio)[0];
 
+            Documento doc = documentoBLL.GetDocumentosxFolio(folio)[0];
+            CampoBuscar.Attributes.Add("placeholder","Buscar nombre del Producto o codigo EJ: Teclado");
             nombreEmpresa.InnerHtml = doc.Vendedor.RazonSocial;
             telefono.InnerHtml = doc.Vendedor.Telefono;
             giro.InnerHtml = doc.Vendedor.Giro;
@@ -33,27 +36,99 @@ namespace capaPresentacion
             txtEmail.Text = doc.Comprador.Email;
             txtPago.Text = doc.TipoPago.ToString();
 
-            if (!IsPostBack)
+
+
+        }
+
+     
+
+      
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            string buscar = CampoBuscar.Text;
+           
+            prods = productoBLL.GetProductos(buscar);
+            UpdateData();
+            /*
+            foreach (Producto prod in productos)
             {
-                // Create a datatable as a DataSource of your GridView
-                DataTable dt = new DataTable();
+                
+                Label label = new Label();
+                label.Text = prod.Nombre;
+                TextBox cantidad = new TextBox();
+                cantidad.ID = "c"+prod.Codigo;
+                cantidad.Attributes.Add("placeholder", "Ingrese la cantidad");
+                Button btn = new Button();
+                btn.Text = "Agergar";
+                btn.Click += this.agregarProd;
 
-                // Add three columns in datatable and their names and data types
-                dt.Columns.Add(new DataColumn("ID", typeof(int)));
-                dt.Columns.Add(new DataColumn("Codigo", typeof(string)));
-                dt.Columns.Add(new DataColumn("NombreProducto", typeof(string)));
-                dt.Columns.Add(new DataColumn("Descripcion", typeof(string)));
-                dt.Columns.Add(new DataColumn("Cantidad", typeof(string)));
-                dt.Columns.Add(new DataColumn("Precio", typeof(string)));
+                System.Web.UI.HtmlControls.HtmlGenericControl div1 = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+                System.Web.UI.HtmlControls.HtmlGenericControl div2 = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+                div1.Attributes.Add("class", "col-2 mt-2");
+                btn.Attributes.Add("data-codigo",prod.Codigo);
+                div2.Attributes.Add("class", "col-10 text-left mt-2");
+                div1.Controls.Add(label);
+                div2.Controls.Add(cantidad);
+                div2.Controls.Add(btn);
+                resultSearch.Controls.Add(div1);
+                resultSearch.Controls.Add(div2);
+
+
+
+
+        }
+                            */
+        }
+     
+        public void UpdateData() {
+
+
+
+            dt.Columns.Add(new DataColumn("ID", typeof(int)));
+            dt.Columns.Add(new DataColumn("Codigo", typeof(string)));
+            dt.Columns.Add(new DataColumn("NombreProducto", typeof(string)));
+            dt.Columns.Add(new DataColumn("Descripcion", typeof(string)));
+            dt.Columns.Add(new DataColumn("Precio", typeof(string)));
+            dt.Columns.Add(new DataColumn("Cantidad", typeof(string)));
+    
+    
+
+
+            foreach (Producto prod in prods)
+            {
+
+                dt.Rows.Add(1,prod.Codigo , prod.Nombre , prod.Descripcion ,prod.Precio,"1");
+            }
+              
             
-                // Add five records in datatable
-                for (int i = 0; i < 5; i++)
-                {
-                    dt.Rows.Add(i, "Name" + i, "Country" + i, "chao");
-                }
 
-                GridView1.DataSource = dt; // set your datatable to your gridview as datasource
-                GridView1.DataBind(); // bind the gridview with datasource
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+        }
+        public void debug(string data)
+        {
+            Response.Write("<script>alert('" + data + "');</script>");
+        }
+
+
+
+        protected void AgregarProd_Click(object sender, EventArgs e)
+        {
+            LinkButton button = (LinkButton)sender;
+            string codigo = (string)button.Attributes["data-codigo"];
+
+            foreach (GridViewRow row in GridView1.Rows)
+            {
+                TextBox c = (TextBox)row.FindControl("txt_Cantidad");
+                if (c is TextBox) {
+                    TextBox tb = (TextBox)c;
+
+                    if (codigo.Equals((string)c.Attributes["data-codigo"]))
+                    {
+                        debug(tb.Text);
+                    }
+                   
+                }
             }
         }
     }

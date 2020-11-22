@@ -82,8 +82,19 @@
 
                     </span>
                 </div>
-                <input type="text" class="form-control" placeholder="Buscar Producto" aria-label="Productos" aria-describedby="basic-addon1">
+                <asp:TextBox ID="CampoBuscar" runat="server" CssClass="form-control"  ></asp:TextBox>
+                        <asp:Button ID="Button3" runat="server" Text="Buscar" OnClick="Button3_Click" CssClass="" />
+
+                
             </div>
+               <div class="row">
+                    
+                    <div class="col-12">
+                        <div id="resultSearch" runat="server" class="row p-3">
+                    
+                        </div>
+                    </div>
+                </div>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" CssClass="table table-dark">
                 <Columns>
                     <asp:TemplateField HeaderText="ID">
@@ -106,19 +117,32 @@
                             <asp:Label ID="lbDescripcion" runat="server" Text='<% #Bind("Descripcion") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Cantidad">
-                        <ItemTemplate>
-                            <asp:Label ID="lbCantidad" runat="server" Text='<% #Bind("Cantidad") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                   
                     <asp:TemplateField HeaderText="Precio">
                         <ItemTemplate>
                             <asp:Label ID="lbTotal" runat="server" Text='<% #Bind("Precio") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Cantidad">
+                        <ItemTemplate>
+                          <asp:TextBox ID="txt_Cantidad" runat="server" Text='<%# Eval("Cantidad") %>'  data-codigo='<%# Eval("Codigo") %>'></asp:TextBox>
+                         <asp:LinkButton ID="AgregarProd" runat="server" OnClick="AgregarProd_Click" CssClass="" data-codigo='<%# Eval("Codigo") %>' >
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5H2z"/>
+                              <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+                            </svg>
+                        </asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+               
                 </Columns>
             </asp:GridView>
+            <div class="row">
+                <div class="col-12 text-right">
+                      
+                </div>
 
+            </div>
             <div class="row">
                 <div class="input-group col-4">
                     <div class="input-group-prepend">
@@ -162,5 +186,5 @@
 
     </form>
 
-
+  
 </asp:Content>

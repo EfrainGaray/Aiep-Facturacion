@@ -217,7 +217,11 @@
     <script src="Scripts/jquery-3.4.1.slim.min.js"></script>
 
     <script src="Scripts/bootstrap.bundle.min.js"></script>
-
+      <script type="text/javascript">
+        function ButtonClick(event,button){
+            document.getElementById(button).click();
+        }
+      </script>
 </body>
 
 </html>
