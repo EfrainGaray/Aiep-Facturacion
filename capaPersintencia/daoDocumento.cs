@@ -395,6 +395,45 @@ namespace capaPersintencia
 
                 throw;
             }
+        }
+
+        public int getIdDocumento(string folio)
+        {
+
+            try
+            {
+                ConexionBD conexion = new ConexionBD();
+                conexion.abrirConexion();
+                string sql = "SELECT * FROM documento where folio = @folio";
+                SqlDataAdapter sqlData = new SqlDataAdapter(sql, conexion.Conexion);
+
+                sqlData.SelectCommand.Parameters.AddWithValue("@folio", SqlDbType.VarChar);
+                sqlData.SelectCommand.Parameters["@folio"].Value = folio;
+
+
+                DataTable dataTable = new DataTable();
+
+                int id = 0;
+
+                sqlData.Fill(dataTable);
+                conexion.cerrarConexion();
+                if (dataTable.Rows.Count > 0)
+                {
+
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+
+                        id = int.Parse(dataTable.Rows[i]["id"].ToString());
+
+                    }
+                }
+                return id;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
         }
     }
