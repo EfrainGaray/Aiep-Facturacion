@@ -11,6 +11,7 @@ namespace capaPersintencia
 {
     public class daoDocumento
     {
+        
         public bool registrarDocumento(Documento nuevoDocumento) {
             daoCliente aux = new daoCliente();
 
@@ -342,6 +343,8 @@ namespace capaPersintencia
         }
         public List<Documento> consultarDocumentoxFecha(DateTime fInicial, DateTime fFinal)
         {
+            DateTime fFin = fFinal;
+            fFinal.AddDays(1);
 
             try
             {
