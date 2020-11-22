@@ -38,5 +38,10 @@ namespace capaNegocio
 
             return productos;
         }
+        public int getId(string folio)
+        {
+            daoDocumento daoDoc = new daoDocumento();
+            return daoDoc.getIdDocumento(folio);
+        }
     }
 }

@@ -16,11 +16,14 @@ namespace capaPresentacion
         public DataTable dt = new DataTable();
         public List<Producto> prods;
         public ProductoBLL productoBLL = new ProductoBLL();
+        public DocumentoBLL documentoBLL = new DocumentoBLL();
+        public List<DetalleDocumento> detalleDoc = new List<DetalleDocumento>();
+        public string folio;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string folio = Request.QueryString["folio"];
+            folio = Request.QueryString["folio"];
 
-            DocumentoBLL documentoBLL = new DocumentoBLL();
+           
 
             Documento doc = documentoBLL.GetDocumentosxFolio(folio)[0];
             CampoBuscar.Attributes.Add("placeholder","Buscar nombre del Producto o codigo EJ: Teclado");
@@ -116,7 +119,7 @@ namespace capaPresentacion
         {
             LinkButton button = (LinkButton)sender;
             string codigo = (string)button.Attributes["data-codigo"];
-
+            Producto producto = productoBLL.GetProductos(codigo)[0];
             foreach (GridViewRow row in GridView1.Rows)
             {
                 TextBox c = (TextBox)row.FindControl("txt_Cantidad");
@@ -125,7 +128,10 @@ namespace capaPresentacion
 
                     if (codigo.Equals((string)c.Attributes["data-codigo"]))
                     {
-                        debug(tb.Text);
+                        int IdProd = productoBLL.getId(codigo);
+                        int IdDoc = documentoBLL.getId(folio);
+                        DetalleDocumento detalleDocumento = new DetalleDocumento(int.Parse(tb.Text), producto.Precio, 0,IdDoc,IdProd,0);
+                        detalleDoc.Add(detalleDocumento);
                     }
                    
                 }
