@@ -1,0 +1,77 @@
+﻿html, body {
+    height: 100%;
+}
+
+#yellow {
+    height: 100%;
+    background: yellow;
+}
+.login-bg {
+    background: url(../Imagen/bg-login.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.form-bg {
+    background: rgba(126, 132, 146,.6);
+}
+.form-bg figure.login {
+    width: 300px;
+    margin: 0 auto;
+}
+
+
+.bg-color-primary-button {
+    background: #EF295E;
+    border:1px solid #EF295E;
+}
+
+.color-fondo {
+    background: #455060;
+}
+.boton {
+    background:none;
+}
+
+    .boton::after {
+        position: absolute;
+        right: 16px;
+        top: 40%;
+    }
+.cerrar {
+    padding: 9%;
+    width: 100%;
+    position: absolute;
+    bottom: 15px;
+}
+.cerrarColor {
+    background: #FF007C;
+}
+.indicador {
+    padding: 0 9%;
+    /* border: 1px solid blue; */
+    border-radius: 15px;
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+}
+    .indicador hr {
+        border-top: 1px solid;
+        width: 120% !important;
+        margin-left: -10%;
+    }
+    .indicador p:nth-child(3) {
+        height:50px;
+    }
+.opacity-0 {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.esqueleto {
+    background: #ffffff
+}
+
+

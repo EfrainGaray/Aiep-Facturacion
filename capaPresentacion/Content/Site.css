@@ -1,0 +1,120 @@
+﻿html, body {
+    height: 100%;
+}
+
+#yellow {
+    height: 100%;
+    background: yellow;
+}
+
+.login-bg {
+    background: url(../Imagen/bg-login.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.form-bg {
+    background: rgba(126, 132, 146,.6);
+}
+
+    .form-bg figure.login {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+
+.bg-color-primary-button {
+    background: #EF295E;
+    border: 1px solid #EF295E;
+}
+
+.color-fondo {
+    background: #455060;
+}
+
+.boton {
+    background: none;
+}
+
+    .boton::after {
+        position: absolute;
+        right: 16px;
+        top: 40%;
+    }
+
+.cerrar {
+    padding: 9%;
+    width: 100%;
+    position: absolute;
+    bottom: 15px;
+}
+
+.cerrarColor {
+    background: #FF007C;
+}
+
+.indicador {
+    padding: 0 9%;
+    /* border: 1px solid blue; */
+    border-radius: 15px;
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+}
+
+    .indicador hr {
+        border-top: 1px solid;
+        width: 120% !important;
+        margin-left: -10%;
+    }
+
+    .indicador p:nth-child(3) {
+        height: 50px;
+    }
+    .indicador .fs-24{
+        font-size: 24px;
+    }
+.bg-index {
+    background: url(../Imagen/nuevas-tecnologias_azul.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.border-radius-10{
+    border-radius:10px;
+}
+.fs-24{
+    font-size:24px;
+}
+.fs-26 {
+    font-size: 26px;
+}
+.fs-22 {
+    font-size: 22px;
+} 
+.bg-gray {
+    background: #707070 !important;
+    border-radius: 10px;
+}
+.factura-folio {
+    background: #FF007C;
+    border-radius:10px;
+}
+.logo-empresa {
+    position: absolute;
+    left: -30px;
+    width: 20%;
+    top: 50px;
+}
+.opacity-0 {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s, visibility 1s;
+}
+.bg-green {
+    background: #78F3D2;
+
+}

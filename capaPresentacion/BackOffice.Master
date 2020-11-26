@@ -1,0 +1,227 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BackOffice.master.cs" Inherits="Aiep_Facturacion.BackOffice" %>
+
+<!DOCTYPE html>
+
+<html class="h-100">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="Content/bootstrap.min.css">
+    <link rel="stylesheet" href="Content/Site.css">
+    <style>
+        .border-red {
+            border: 1px solid red;
+        }
+
+        .border-green {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+<body class="color-fondo ">
+
+        <div class="container-fluid h-100">
+            <div class="row justify-content-center h-100 pt-5">
+                <div class="col-2 ">
+                    <a href="/index"
+                    <figure class="backoffice">
+                        <img class="img-fluid" src="Imagen/logo-login.png" />
+                    </figure>
+                        </a>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="btn-group w-100 " role="group">
+                                <a id="btnFactura1" class="btn btn-secondary dropdown-toggle boton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-receipt text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z" />
+                                        <path fill-rule="evenodd" d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+                                    Facturas
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" href="listaFactura.aspx">Ver Facturas</a>
+                                    <a class="dropdown-item" href="CrearFactura.aspx">Crear Nueva Factura</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 pt-3">
+                            <div class="btn-group w-100" role="group">
+
+                                <a id="btn"  class="btn btn-secondary dropdown-toggle boton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-tools" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M0 1l1-1 3.081 2.2a1 1 0 0 1 .419.815v.07a1 1 0 0 0 .293.708L10.5 9.5l.914-.305a1 1 0 0 1 1.023.242l3.356 3.356a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0l-3.356-3.356a1 1 0 0 1-.242-1.023L9.5 10.5 3.793 4.793a1 1 0 0 0-.707-.293h-.071a1 1 0 0 1-.814-.419L0 1zm11.354 9.646a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708-.708l-3-3z" />
+                                        <path fill-rule="evenodd" d="M15.898 2.223a3.003 3.003 0 0 1-3.679 3.674L5.878 12.15a3 3 0 1 1-2.027-2.027l6.252-6.341A3 3 0 0 1 13.778.1l-2.142 2.142L12 4l1.757.364 2.141-2.141zm-13.37 9.019L3.001 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z" />
+                                    </svg>
+                                    Mantenedores
+                                </a>
+
+
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" href="CrearProducto.aspx">Crear Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 pt-3">
+                            <div class="btn-group w-100 " role="group">
+                                <a id="btnFactura" class="btn btn-secondary dropdown-toggle boton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-receipt text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z" />
+                                        <path fill-rule="evenodd" d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+                                    Reportes
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" href="Totales">Totales</a>
+                                    <a class="dropdown-item" href="PorFecha">Por fecha</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cerrar">
+                            <div class="btn-group w-100" role="group">
+
+                                <a id="close"  class="btn btn-secondary boton cerrarColor" href="./index?logout=1">
+                                <svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z" />
+                                    <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z" />
+                                </svg>
+                                Cerrar
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-10">
+
+                    <div class="container-fluid">
+                        <div class="row ">
+                            <div class="col">
+
+                                <div class="indicador pt-2 pb-1">
+                                    <p>
+                                        Facturas registrada por el usuario durante la sesión
+                                    </p>
+                                    <hr />
+
+                                    <div class="row">
+                                        <p class="col-6">
+                                            <span class="fs-24" runat="server" id="factura1">123 </span>
+                                        </p>
+
+                                        <figure class="col-6">
+                                            <svg xmlns="http://www.w3.org/2000/svg" color="red" width="70.572" height="28.158" viewBox="0 0 70.572 28.158">
+                                                <path data-name="Trazado 336" d="M3195.7-22381.238s2.358,3.707,4.716,3.707,1.834-3.707,4.717-3.707,3.45,1.027,6.813,3.707,2.8,7.262,6.638,7.02,4.717-8.873,8.734-8,4.411,9.213,7.337,11.506,1.747-2.729,4.367-2.338,2.838,5.07,6.114,3.9,3.93-7.312,6.987-8.58,1.006,3.4,4.518,3.336c4.218-.068,6.535-18.187,7.059-20.568" transform="translate(-3194.32 22392.445)" fill="none" stroke="#101FE8" stroke-linecap="round" stroke-width="2" />
+                                            </svg>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+
+                                <div class="indicador pt-2 pb-1">
+                                    <p>
+                                        Facturas registradas por todos los usuarios registrados
+                                    </p>
+                                    <hr />
+
+                                    <div class="row">
+                                        <p class="col-6">
+                                            <span class="fs-24" runat="server" id="factura2">123</span>
+
+                                        </p>
+
+                                        <figure class="col-6" runat="server">
+                                            <svg xmlns="http://www.w3.org/2000/svg" color="red" width="70.572" height="28.158" viewBox="0 0 70.572 28.158">
+                                                <path data-name="Trazado 336" d="M3195.7-22381.238s2.358,3.707,4.716,3.707,1.834-3.707,4.717-3.707,3.45,1.027,6.813,3.707,2.8,7.262,6.638,7.02,4.717-8.873,8.734-8,4.411,9.213,7.337,11.506,1.747-2.729,4.367-2.338,2.838,5.07,6.114,3.9,3.93-7.312,6.987-8.58,1.006,3.4,4.518,3.336c4.218-.068,6.535-18.187,7.059-20.568" transform="translate(-3194.32 22392.445)" fill="none" stroke="#BA58E6" stroke-linecap="round" stroke-width="2" />
+                                            </svg>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+
+
+                                <div class="indicador pt-2 pb-1">
+                                    <p>
+                                        Total neto facturado por el usuario en sesión
+                                    </p>
+                                    <hr />
+
+                                    <div class="row ">
+                                        <p class="col-6">
+                                            <span class="fs-24" runat="server" id="factura3">123</span>
+
+                                        </p>
+
+                                        <figure class="col-6" runat="server">
+                                            <svg xmlns="http://www.w3.org/2000/svg" color="red" width="70.572" height="28.158" viewBox="0 0 70.572 28.158">
+                                                <path data-name="Trazado 336" d="M3195.7-22381.238s2.358,3.707,4.716,3.707,1.834-3.707,4.717-3.707,3.45,1.027,6.813,3.707,2.8,7.262,6.638,7.02,4.717-8.873,8.734-8,4.411,9.213,7.337,11.506,1.747-2.729,4.367-2.338,2.838,5.07,6.114,3.9,3.93-7.312,6.987-8.58,1.006,3.4,4.518,3.336c4.218-.068,6.535-18.187,7.059-20.568" transform="translate(-3194.32 22392.445)" fill="none" stroke="#02BC1A" stroke-linecap="round" stroke-width="2" />
+                                            </svg>
+
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+
+
+                                <div class="indicador pt-2 pb-1">
+                                    <p>
+                                        Total neto facturado por todos los usuarios registrados 
+                                    </p>
+                                    <hr />
+
+                                    <div class="row">
+                                        <p class="col-6">
+                                            <span class="fs-24" runat="server" id="factura4">123</span>
+
+                                        </p>
+
+                                        <figure class="col-6">
+                                            <svg xmlns="http://www.w3.org/2000/svg" color="red" width="70.572" height="28.158" viewBox="0 0 70.572 28.158">
+                                                <path data-name="Trazado 336" d="M3195.7-22381.238s2.358,3.707,4.716,3.707,1.834-3.707,4.717-3.707,3.45,1.027,6.813,3.707,2.8,7.262,6.638,7.02,4.717-8.873,8.734-8,4.411,9.213,7.337,11.506,1.747-2.729,4.367-2.338,2.838,5.07,6.114,3.9,3.93-7.312,6.987-8.58,1.006,3.4,4.518,3.336c4.218-.068,6.535-18.187,7.059-20.568" transform="translate(-3194.32 22392.445)" fill="none" stroke="#FF007C" stroke-linecap="round" stroke-width="2" />
+                                            </svg>
+
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid">
+
+
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    <script src="Scripts/jquery-3.4.1.slim.min.js"></script>
+
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript">
+        function ButtonClick(event,button){
+            document.getElementById(button).click();
+        }
+      </script>
+</body>
+
+</html>

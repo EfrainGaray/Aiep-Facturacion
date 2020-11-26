@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Login.master.cs" Inherits="Aiep_Facturacion.Login" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Login</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="Content/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="Content/main.css" crossorigin="anonymous">
+    <style>
+        .border-red {
+            border:1px solid red;
+        }
+        .border-green {
+            border:1px solid green;
+        }
+
+    </style>
+</head>
+<body class="login-bg">
+<div class="container-xl">
+  <div class="row">
+    <div class="col-xl-12">
+        <div class ="row">
+            <div class="col-xl-5 ">
+           
+                 <form id="form1" class="form-bg mt-5" runat="server">
+                     
+                    <div class="row pt-5">
+                        <div class="col-12">
+                            <figure>
+                                <img width="300"   src="Imagen/logo-login.png" />
+                            </figure>
+                            
+                        </div>
+                        <div class="col-12">
+                          
+                                <div class="row">
+                                    <div class="col-2"></div>
+                                    <!-- input text del formulario -->
+                                         <asp:ContentPlaceHolder ID="detalle" runat="server"></asp:ContentPlaceHolder>
+                             
+                                    <!-- fin de los input del formulario -->
+                                    <div class="col-2"></div>
+                                </div>
+                             
+
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+   
+</body>
+    <script src="Scripts/jquery-3.0.0.min.js" ></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+ 
+</html>
